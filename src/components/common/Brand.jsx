@@ -1,3 +1,3 @@
 export function Brand({ compact = false }) {
-  return <div className={`brand ${compact ? 'brand-compact' : ''}`}><span className="brand-mark">A<span>↗</span></span><span className="brand-name">ADVANCE<small>STUDY SECTOR</small></span></div>
+  return <div className={`brand ${compact ? 'brand-compact' : ''}`}><img className="brand-logo" src="/logo.jpeg" alt="Advance Study Sector" /></div>
 }

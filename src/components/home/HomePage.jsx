@@ -8,16 +8,16 @@ import { CommunitySection } from './CommunitySection'
 import { TestimonialsSection } from './TestimonialsSection'
 import { CtaBanner } from './CtaBanner'
 
-export function HomePage({ onNavigate }) {
+export function HomePage() {
   return <>
-    <Hero onNavigate={onNavigate} />
+    <Hero />
     <Marquee />
     <StatsStrip />
-    <Philosophy onNavigate={onNavigate} />
+    <Philosophy />
     <ValuesSection kicker="02 / What we stand for" heading={<>Four values that<br /><em>shape everything.</em></>} />
     <VideoSection />
     <CommunitySection />
     <TestimonialsSection />
-    <CtaBanner onNavigate={onNavigate} />
+    <CtaBanner />
   </>
 }

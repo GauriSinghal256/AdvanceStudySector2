@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
@@ -10,11 +11,10 @@ import { CourseDetailPage } from './components/courses/CourseDetailPage'
 import { ContactPage } from './components/contact/ContactPage'
 
 function App() {
-  const [activePage, setActivePage] = useState('home')
-  const [selectedCourse, setSelectedCourse] = useState(null)
   const [showTop, setShowTop] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,40 +25,26 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const goTo = (page) => {
-    setActivePage(page)
-    setSelectedCourse(null)
+  useEffect(() => {
     setMenuOpen(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
-  const goToCourse = (course) => {
-    setSelectedCourse(course)
-    setActivePage('course-detail')
-    setMenuOpen(false)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+  }, [location.pathname])
 
   return <div className="site-shell">
-    <Header
-      activePage={activePage}
-      scrolled={scrolled}
-      menuOpen={menuOpen}
-      onToggleMenu={() => setMenuOpen(!menuOpen)}
-      onNavigate={goTo}
-    />
+    <Header scrolled={scrolled} menuOpen={menuOpen} onToggleMenu={() => setMenuOpen(!menuOpen)} />
 
     <main>
-      {activePage === 'home' && <HomePage onNavigate={goTo} />}
-      {activePage === 'about' && <AboutPage />}
-      {activePage === 'courses' && <CoursesPage onSelectCourse={goToCourse} onNavigate={goTo} />}
-      {activePage === 'course-detail' && selectedCourse && (
-        <CourseDetailPage course={selectedCourse} onBack={() => goTo('courses')} onNavigate={goTo} />
-      )}
-      {activePage === 'contact' && <ContactPage />}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/courses" element={<CoursesPage />} />
+        <Route path="/courses/:slug" element={<CourseDetailPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<HomePage />} />
+      </Routes>
     </main>
 
-    <Footer onNavigate={goTo} onSelectCourse={goToCourse} />
+    <Footer />
     <ScrollTopButton visible={showTop} />
   </div>
 }

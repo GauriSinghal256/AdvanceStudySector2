@@ -1,17 +1,22 @@
+import { NavLink, Link } from 'react-router-dom'
 import { Brand } from '../common/Brand'
 import { ArrowIcon } from '../common/ArrowIcon'
 
-const navPages = ['home', 'about', 'courses', 'contact']
-const navLabels = { home: 'Home', about: 'About us', courses: 'Courses', contact: 'Contact us' }
+const navItems = [
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About us' },
+  { to: '/courses', label: 'Courses' },
+  { to: '/contact', label: 'Contact us' },
+]
 
-export function Header({ activePage, scrolled, menuOpen, onToggleMenu, onNavigate }) {
+export function Header({ scrolled, menuOpen, onToggleMenu }) {
   return <header className={`site-header ${scrolled ? 'header-scrolled' : ''}`}>
     <div className="header-inner">
-      <button className="brand-button" onClick={() => onNavigate('home')} aria-label="Go to home"><Brand /></button>
+      <Link className="brand-button" to="/" aria-label="Go to home"><Brand /></Link>
       <button className="menu-toggle" onClick={onToggleMenu} aria-label="Toggle menu"><span /><span /></button>
       <nav className={menuOpen ? 'nav-open' : ''}>
-        {navPages.map((page) => <button key={page} className={activePage === page || (page === 'courses' && activePage === 'course-detail') ? 'active' : ''} onClick={() => onNavigate(page)}>{navLabels[page]}</button>)}
-        <button className="nav-cta" onClick={() => onNavigate('contact')}>Start learning <ArrowIcon /></button>
+        {navItems.map((item) => <NavLink key={item.to} to={item.to} end={item.to === '/'} className={({ isActive }) => (isActive ? 'active' : '')}>{item.label}</NavLink>)}
+        <Link className="nav-cta" to="/contact">Start learning <ArrowIcon /></Link>
       </nav>
     </div>
   </header>

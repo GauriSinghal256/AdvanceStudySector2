@@ -3,18 +3,20 @@ import { Reveal } from '../common/Reveal'
 import { ArrowIcon } from '../common/ArrowIcon'
 import { courses } from '../../data/courses'
 import { contactInfo } from '../../data/contactInfo'
+import { OverlayHero } from '../common/OverlayHero'
 
 export function ContactPage() {
   const [formSent, setFormSent] = useState(false)
 
   return <section className="page-section contact-page section-wrap">
-    <Reveal><div className="contact-heading"><p className="eyebrow"><span /> 08 / Let's talk</p><h1>Your next chapter<br /><em>starts here.</em></h1><p>Have a question about a course or your best path forward? Our team would love to hear from you.</p></div></Reveal>
+    <OverlayHero label="08 / Let's talk" title={<>Your next chapter<br /><em>starts here.</em></>} intro="Have a question about a course or your best path forward? Our team would love to hear from you." image="https://images.pexels.com/photos/5427674/pexels-photo-5427674.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400" imageAlt="Advisor ready to help" />
     <div className="contact-grid">
       <Reveal><div className="contact-details">
         <div className="detail"><span className="detail-icon">↗</span><div><small>Call us</small><a href={contactInfo.phoneHref}>{contactInfo.phone}</a></div></div>
         <div className="detail"><span className="detail-icon">✉</span><div><small>Email us</small><a href={contactInfo.emailHref}>{contactInfo.email}</a></div></div>
-        <div className="detail"><span className="detail-icon">⌖</span><div><small>Visit us</small><p>{contactInfo.addressLines.map((line, i) => <span key={line}>{line}{i < contactInfo.addressLines.length - 1 && <br />}</span>)}</p></div></div>
+        <div className="detail"><span className="detail-icon">⌖</span><div><small>Visit us</small><p>{contactInfo.addressLines.map((line, i) => <span key={line}>{line}{i < contactInfo.addressLines.length - 1 && <br />}</span>)}</p><a className="map-link" href={contactInfo.mapLink} target="_blank" rel="noreferrer">Get directions ↗</a></div></div>
         <div className="detail"><span className="detail-icon">◷</span><div><small>Office hours</small><p>{contactInfo.hours.weekdays}<br />{contactInfo.hours.sunday}</p></div></div>
+        <div className="detail"><span className="detail-icon">☺</span><div><small>Follow us</small><p><a href={contactInfo.social.instagram} target="_blank" rel="noreferrer">Instagram</a> · <a href={contactInfo.social.facebook} target="_blank" rel="noreferrer">Facebook</a></p></div></div>
         <div className="map-card"><iframe title="Advance Study Sector location map" src={`https://www.google.com/maps?q=${contactInfo.mapQuery}&output=embed`} loading="lazy" /></div>
       </div></Reveal>
       <Reveal delay={150}>
