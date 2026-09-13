@@ -11,8 +11,16 @@ export function CoursesPage() {
   const [openFaq, setOpenFaq] = useState(0)
 
   return <section className="page-section courses-page section-wrap">
-    <OverlayHero label="07 / What we teach" title={<>Courses built for<br /><em>your next move.</em></>} intro="Choose a focused path, learn from people who care and leave with skills that make a difference." image="https://images.pexels.com/photos/5427860/pexels-photo-5427860.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400" imageAlt="Students focused on a course" />
-    <div className="course-list">{courses.map((course, i) => <Reveal key={course.slug} delay={i * 80}><Link className="course-card" to={`/courses/${course.slug}`}><span className="course-number">{course.icon}</span><div><h3>{course.title}</h3><p>{course.detail}</p></div><span className="course-duration">{course.duration}</span><span className="course-arrow" aria-label={`View details for ${course.title}`}><ArrowIcon /></span></Link></Reveal>)}</div>
+    <OverlayHero label="07 / What we teach" title={<>Courses built for<br /><em>your next move.</em></>} intro="From junior wing to banking exam coaching — choose a focused path, learn from mentors who care and leave with skills that make a difference." image="/images.jpg" imageAlt="Student learning online" />
+    <div className="course-grid">{courses.map((course, i) => <Reveal key={course.slug} delay={i * 80}><Link className="course-card-img" to={`/courses/${course.slug}`}>
+      <div className="course-card-img-wrap"><img src={course.image} alt={course.title} /><span className="course-number">{course.icon}</span></div>
+      <div className="course-card-img-body">
+        <span className="course-card-subtitle">{course.subtitle}</span>
+        <h3>{course.title}</h3>
+        <p>{course.tagline}</p>
+        <span className="course-card-cta">View course <ArrowIcon /></span>
+      </div>
+    </Link></Reveal>)}</div>
     <div className="course-footer"><span>Not sure where to begin?</span><Link className="text-button" to="/contact">Talk to an advisor <ArrowIcon /></Link></div>
     <section className="faq-section">
       <Reveal><div className="section-kicker">Frequently asked</div></Reveal>

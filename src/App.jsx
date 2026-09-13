@@ -9,6 +9,7 @@ import { AboutPage } from './components/about/AboutPage'
 import { CoursesPage } from './components/courses/CoursesPage'
 import { CourseDetailPage } from './components/courses/CourseDetailPage'
 import { ContactPage } from './components/contact/ContactPage'
+import { TestimonialsResultsPage } from './components/results/TestimonialsResultsPage'
 
 function App() {
   const [showTop, setShowTop] = useState(false)
@@ -39,6 +40,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/courses" element={<CoursesPage />} />
         <Route path="/courses/:slug" element={<CourseDetailPage />} />
+        <Route path="/results" element={<TestimonialsResultsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
