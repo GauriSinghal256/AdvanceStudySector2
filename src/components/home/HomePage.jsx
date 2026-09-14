@@ -2,7 +2,6 @@ import { Hero } from './Hero'
 import { FounderIntro } from './FounderIntro'
 import { Marquee } from './Marquee'
 import { StatsStrip } from './StatsStrip'
-import { Philosophy } from './Philosophy'
 import { ValuesSection } from '../common/ValuesSection'
 import { VideoSection } from './VideoSection'
 import { CommunitySection } from './CommunitySection'
@@ -14,7 +13,6 @@ export function HomePage() {
     <Marquee />
     <StatsStrip />
     <FounderIntro />
-    <Philosophy />
     <ValuesSection kicker="02 / What we stand for" heading={<>Four values that<br /><em>shape everything.</em></>} />
     <VideoSection />
     <CommunitySection />

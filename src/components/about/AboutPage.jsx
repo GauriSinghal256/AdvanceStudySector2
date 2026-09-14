@@ -6,7 +6,7 @@ import { Reveal } from '../common/Reveal'
 import './AboutPage.css'
 
 export function AboutPage() {
-  return <>
+  return <div className="about-page-shell">
     <PageHero
       label="06 / Our story"
       title={<>Learning that<br /><em>leaves a mark.</em></>}
@@ -21,5 +21,5 @@ export function AboutPage() {
     <FounderSection />
     <TimelineSection />
     <ValuesSection kicker="What we stand for" heading={<>The values that<br /><em>guide us daily.</em></>} />
-  </>
+  </div>
 }
