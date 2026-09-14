@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Reveal } from '../common/Reveal'
 import './AwardsSection.css'
 
@@ -22,9 +23,26 @@ const awards = [
     eyebrow: 'Achievement 04',
     alt: 'Recognition and achievement at Advance Study Sector',
   },
+  // To add more achievements later, just add another { image, eyebrow, alt }
+  // object here — the carousel, dots and thumbnails update automatically.
 ]
 
 export function AwardsSection() {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    if (awards.length < 2) return
+    const timer = window.setInterval(() => {
+      setIndex((current) => (current + 1) % awards.length)
+    }, 3200)
+    return () => window.clearInterval(timer)
+  }, [])
+
+  const goPrev = () => setIndex((current) => (current - 1 + awards.length) % awards.length)
+  const goNext = () => setIndex((current) => (current + 1) % awards.length)
+
+  const current = awards[index]
+
   return <section className="awards-section">
     <div className="section-wrap">
       <div className="awards-heading">
@@ -33,16 +51,39 @@ export function AwardsSection() {
         <Reveal delay={140}><p>Every award reflects a culture of showing up, doing the work and helping students move forward with confidence.</p></Reveal>
       </div>
 
-      <div className="awards-gallery">
-        {awards.map((award, index) => <Reveal key={award.image} delay={index * 180} className="award-reveal">
-          <article className={`award-card award-card-${index + 1}`} style={{ '--award-delay': `${index * 1.2}s` }}>
-            <div className="award-image-wrap">
-              <img src={award.image} alt={award.alt} />
-              <span className="award-number">0{index + 1}</span>
+      <Reveal delay={180}>
+        <div className="awards-carousel">
+          {awards.length > 1 && <button type="button" className="award-nav award-nav-prev" onClick={goPrev} aria-label="Previous achievement">‹</button>}
+
+          <div className="award-stage">
+            <div className="award-stage-frame">
+              {awards.map((award, i) => <img
+                key={award.image}
+                src={award.image}
+                alt={award.alt}
+                className={`award-slide ${i === index ? 'active' : ''}`}
+                aria-hidden={i !== index}
+              />)}
+              <span className="award-eyebrow">{current.eyebrow}</span>
+              <span key={current.image} className="award-number">0{index + 1}</span>
             </div>
-          </article>
-        </Reveal>)}
-      </div>
+          </div>
+
+          {awards.length > 1 && <button type="button" className="award-nav award-nav-next" onClick={goNext} aria-label="Next achievement">›</button>}
+        </div>
+      </Reveal>
+
+      {awards.length > 1 && <div className="award-thumbs">
+        {awards.map((award, i) => <button
+          type="button"
+          key={award.image}
+          className={`award-thumb ${i === index ? 'active' : ''}`}
+          onClick={() => setIndex(i)}
+          aria-label={`Show ${award.eyebrow}`}
+        >
+          <img src={award.image} alt="" />
+        </button>)}
+      </div>}
     </div>
   </section>
 }

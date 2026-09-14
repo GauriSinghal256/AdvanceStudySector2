@@ -30,14 +30,26 @@ nav a:hover, nav a.active, nav button:hover, nav button.active { color: var(--or
 .nav-utility-mobile { display: none; }
 @media (max-width: 1150px) { .pill-label { display: none; } .text-pill { padding: 10px; } }
 @media (max-width: 800px) {
+  /* Solid white navbar on mobile (never transparent, even before scroll) */
+  .site-header, .site-header.header-scrolled { background: #fff; box-shadow: 0 2px 18px rgba(13, 47, 74, .08); }
+
+  /* Nav links + hamburger read as dark text on the white bar */
+  nav a, nav button,
+  .site-header.header-scrolled nav a, .site-header.header-scrolled nav button { color: var(--ink); }
+  nav a:hover, nav a.active, nav button:hover, nav button.active,
+  .site-header.header-scrolled nav a:hover, .site-header.header-scrolled nav a.active { color: var(--orange); }
+  .menu-toggle span, .site-header.header-scrolled .menu-toggle span { background: var(--navy); }
+
+  /* Right-side icon/CTA cluster is removed from the mobile bar entirely */
   .header-actions { display: none; }
+
   .nav-utility-mobile { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
   .nav-utility-mobile a { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-weight: 600; padding: 4px 0; }
   .nav-utility-mobile a:hover { color: var(--orange); }
   .nav-utility-mobile .button { justify-content: center; margin-top: 6px; }
   .header-inner { padding: 0 24px; }
   .menu-toggle { display: block; }
-  nav { display: none; position: absolute; top: 70px; left: 0; right: 0; background: transparent; padding: 20px 24px 28px; flex-direction: column; align-items: stretch; gap: 10px; box-shadow: none; }
+  nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; padding: 20px 24px 28px; flex-direction: column; align-items: stretch; gap: 10px; box-shadow: 0 18px 30px rgba(13, 47, 74, .12); }
   nav.nav-open { display: flex; }
   nav a, nav button { text-align: left; padding: 11px 0; }
 }

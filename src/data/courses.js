@@ -9,7 +9,7 @@ export const courses = [
     image: 'https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400',
     duration: 'Full academic year',
     level: 'Class 1st to 5th',
-    seats: '15–20 per batch',
+    seats: '8 students per batch',
     points: [
       'All subjects — Hindi, English, Maths, EVS & GK',
       'Dedicated calligraphy & handwriting sessions every week',
@@ -28,7 +28,7 @@ export const courses = [
     image: 'https://images.pexels.com/photos/8926555/pexels-photo-8926555.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400',
     duration: 'Full academic year',
     level: 'Class 6th to 10th',
-    seats: '20–25 per batch',
+    seats: '8 students per batch',
     points: [
       'All subjects covered, class 6th to 10th',
       'Concept-first teaching with regular practice tests',
@@ -47,7 +47,7 @@ export const courses = [
     image: 'https://images.pexels.com/photos/5427860/pexels-photo-5427860.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400',
     duration: 'Full academic year',
     level: 'Class 11th to 12th',
-    seats: '20 per batch',
+    seats: '8 students per batch',
     points: [
       'All four streams under one roof — Medical, Commerce, Arts & Maths',
       'Subject-specialist mentors for every stream',
@@ -71,7 +71,7 @@ export const courses = [
     image: 'https://images.pexels.com/photos/7972710/pexels-photo-7972710.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400',
     duration: '6–12 months',
     level: 'Undergraduate & Postgraduate',
-    seats: '25 per batch',
+    seats: '8 students per batch',
     points: [
       'BBA — business fundamentals & management papers',
       'MBA — core & specialization subjects',
@@ -90,7 +90,7 @@ export const courses = [
     image: 'https://images.pexels.com/photos/6647119/pexels-photo-6647119.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400',
     duration: '4–8 weeks',
     level: 'All ages & classes welcome',
-    seats: '15 per batch',
+    seats: '8 students per batch',
     points: [
       'Handwriting improvement for children, teens & adults',
       'Elegant cursive calligraphy techniques',
@@ -108,7 +108,7 @@ export const courses = [
     image: 'https://images.pexels.com/photos/6469749/pexels-photo-6469749.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400',
     duration: 'Flexible',
     level: 'Working professionals & aspirants',
-    seats: '20 per batch',
+    seats: '8 students per batch',
     points: [
       'Level-wise structured preparation — Level 1, 2 & 3',
       'Dedicated promotional exam coaching for bank staff',
@@ -132,7 +132,7 @@ export const courses = [
     image: 'https://images.pexels.com/photos/8617542/pexels-photo-8617542.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400',
     duration: '4–10 weeks',
     level: 'J.B.T & B.Ed freshers, working teachers',
-    seats: '15–20 per batch',
+    seats: '8 students per batch',
     points: [
       'Practical teacher training for J.B.T & B.Ed freshers',
       'Classroom management & modern teaching methodology',

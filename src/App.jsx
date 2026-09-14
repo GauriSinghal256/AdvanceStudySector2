@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
 import { ScrollTopButton } from './components/layout/ScrollTopButton'
+import { Preloader } from './components/common/Preloader'
 import { HomePage } from './components/home/HomePage'
 import { AboutPage } from './components/about/AboutPage'
 import { CoursesPage } from './components/courses/CoursesPage'
@@ -31,6 +32,7 @@ function App() {
   }, [location.pathname])
 
   return <div className="site-shell">
+    <Preloader />
     <Header scrolled={scrolled} menuOpen={menuOpen} onToggleMenu={() => setMenuOpen(!menuOpen)} />
 
     <main>

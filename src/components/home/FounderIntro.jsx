@@ -4,7 +4,7 @@ import { founder } from '../../data/founder'
 
 export function FounderIntro() {
   return <section className="founder-intro section-wrap">
-    <Reveal><div className="founder-intro-portrait"><img src={founder.img} alt={founder.name} /></div></Reveal>
+    <Reveal><div className="founder-intro-portrait"><img src={founder.images[1]} alt={`${founder.name} mentoring at her desk`} /></div></Reveal>
     <Reveal delay={120}><div className="founder-intro-info">
       <span className="section-kicker">Meet your mentor</span>
       <h2 className="section-heading">Guided personally by<br /><em>{founder.name}.</em></h2>
