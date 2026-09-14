@@ -1,6 +1,5 @@
 export const testimonials = [
-  { quote: 'I came in unsure and left with a clear plan for my career. The mentors genuinely cared about my progress.', name: 'Priya Sharma', role: 'Commerce & Accounting, 2023' },
-  { quote: 'The English Communication course changed how I present myself. I finally feel confident speaking in interviews.', name: 'Rahul Verma', role: 'English Communication, 2024' },
-  { quote: 'The PhD guidance was invaluable. My proposal went from scattered to focused in just a few sessions.', name: 'Dr. Anjali Mehta', role: 'Research Guidance, 2023' },
-  { quote: 'Business Management felt practical from day one. We worked on real case studies, not just textbooks.', name: 'Karan Singh', role: 'Business Management, 2024' },
+  { quote: 'I had a truly enriching experience with this tuition center. The teaching methods were clear, structured, and highly effective. The tutors were knowledgeable, supportive, and approachable. I noticed a significant improvement in my understanding and performance thanks to their consistent guidance.', name: 'SHIV SHANKAR', role: 'Google review' },
+  { quote: 'Best coaching centre in Kurukshetra with a great experience and good results. Teachers are very experienced with good teaching skills.', name: 'Gurkirat Singh Sidhu', role: 'Google review' },
+  { quote: 'The efforts you are making are seen differently in the children you teach. The children are making your name shine. There is happiness in the whole of Kurukshetra about this.', name: 'Vivek Verma', role: 'Google review' },
 ]
