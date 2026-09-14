@@ -1,0 +1,3 @@
+.scroll-top { position: fixed; z-index: 20; right: 25px; bottom: 25px; border: 0; background: var(--orange); color: #fff; width: 48px; height: 48px; border-radius: 50%; font-size: 20px; box-shadow: 0 8px 24px rgba(239, 91, 23, 0.4); animation: rise .3s ease; transition: transform .25s; }
+.scroll-top:hover { transform: translateY(-4px); }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }

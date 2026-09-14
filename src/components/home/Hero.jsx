@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Reveal } from '../common/Reveal'
+import './Hero.css'
 import { ArrowIcon } from '../common/ArrowIcon'
 import { featureImages } from '../../data/featureImages'
 

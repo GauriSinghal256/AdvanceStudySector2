@@ -1,5 +1,6 @@
 import { Reveal } from '../common/Reveal'
 import { resultStats, toppers } from '../../data/results'
+import './ResultsSection.css'
 
 export function ResultsSection() {
   return <section className="results-section">

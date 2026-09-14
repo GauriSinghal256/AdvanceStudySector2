@@ -1,4 +1,5 @@
 import { Reveal } from '../common/Reveal'
+import './CommunitySection.css'
 import { communityImages } from '../../data/communityImages'
 
 export function CommunitySection() {

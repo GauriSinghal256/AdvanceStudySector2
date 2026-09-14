@@ -1,0 +1,5 @@
+.marquee { background: var(--navy-deep); color: #fff; overflow: hidden; padding: 18px 0; }
+.marquee-track { display: flex; align-items: center; gap: 50px; white-space: nowrap; animation: marqueeScroll 25s linear infinite; }
+.marquee-track span { font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic; opacity: 0.9; }
+@keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 460px) { .marquee-track span { font-size: 18px; } }

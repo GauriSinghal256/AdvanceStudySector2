@@ -3,6 +3,7 @@ import { Reveal } from '../common/Reveal'
 import { ArrowIcon } from '../common/ArrowIcon'
 import { courses } from '../../data/courses'
 import { OverlayHero } from '../common/OverlayHero'
+import './CourseDetailPage.css'
 
 export function CourseDetailPage() {
   const { slug } = useParams()

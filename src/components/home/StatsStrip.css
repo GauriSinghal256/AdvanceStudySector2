@@ -1,0 +1,11 @@
+.stats-strip { background: var(--navy); color: white; padding: 60px 0; }
+.stats-inner { display: grid; grid-template-columns: repeat(3, 1fr) 1.6fr; gap: 30px; align-items: center; }
+.stat-item { border-right: 1px solid rgba(255, 255, 255, 0.12); display: flex; align-items: center; gap: 14px; }
+.stat-item strong { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 500; line-height: 1; }
+.stat-item strong span { color: var(--orange); font-size: 28px; }
+.stat-item small { color: #c5d5dc; line-height: 1.4; }
+.stats-note { color: #c5d5dc; text-align: right; line-height: 1.5; font-size: 13px; }
+.stats-note em { color: white; font-family: 'Playfair Display', serif; font-size: 15px; }
+
+@media (max-width: 900px) { .stats-inner { grid-template-columns: repeat(3, 1fr); gap: 16px; } .stats-note { display: none; } }
+@media (max-width: 460px) { .stats-inner strong { font-size: 36px; } }

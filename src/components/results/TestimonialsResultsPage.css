@@ -1,0 +1,6 @@
+.testimonials-results-page.page-section { padding-bottom: 0; }
+.testimonials-results-page > .overlay-hero { width: 100vw; margin: 0 0 70px calc(50% - 50vw); }
+
+@media (max-width: 900px) {
+  .testimonials-results-page > .overlay-hero { width: 100vw; margin-left: calc(50% - 50vw); margin-right: 0; }
+}

@@ -1,3 +1,4 @@
+import './OverlayHero.css'
 import { Reveal } from './Reveal'
 
 export function OverlayHero({ label, title, intro, image, imageAlt, children, className = '' }) {

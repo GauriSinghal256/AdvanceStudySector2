@@ -1,5 +1,6 @@
 import { Reveal } from '../common/Reveal'
 import { timeline } from '../../data/timeline'
+import './TimelineSection.css'
 
 export function TimelineSection() {
   return <section className="timeline-section section-wrap">

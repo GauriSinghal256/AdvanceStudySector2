@@ -1,9 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 
-:root { font-family: 'DM Sans', sans-serif; color: #123d5d; background: #f7f8f5; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+/* ============================================================
+   GLOBAL DESIGN SYSTEM
+   Tokens, resets and the small set of primitives (typography
+   scale, buttons, layout shell) shared by every page. Anything
+   specific to one component lives in that component's own CSS
+   file next to it.
+   ============================================================ */
+
+:root {
+  --navy: #0d2f4a; --navy-deep: #081d30; --blue: #1b5b84; --orange: #ef5b17;
+  --orange-light: #ff7a3d; --cream: #f7f8f5; --pale: #e6eff1; --ink: #14364d;
+  --muted: #5a7585; --line: #d8e1e2; --glass: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  font-family: 'DM Sans', sans-serif; color: #123d5d; background: #f7f8f5;
+  font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;
+}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; min-width: 320px; }
 button, input, select { font: inherit; }
 button { cursor: pointer; }
 a { color: inherit; text-decoration: none; }
+
+#root { min-height: 100vh; }
+.site-shell { overflow-x: hidden; background: var(--cream); }
+.section-wrap { max-width: 1240px; margin: 0 auto; padding-left: 48px; padding-right: 48px; }
+
+/* === TYPOGRAPHY SCALE === */
+.eyebrow, .section-kicker { font-size: 11px; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+.eyebrow span { width: 32px; display: inline-block; vertical-align: middle; border-top: 1px solid var(--orange); margin-right: 10px; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { color: var(--navy); font-size: clamp(54px, 6.3vw, 92px); letter-spacing: -4px; line-height: 0.98; margin: 25px 0 28px; font-weight: 600; }
+h1 em, h2 em { font-family: 'Playfair Display', serif; font-weight: 500; color: var(--orange); }
+.lead { color: var(--navy); font-size: 22px; line-height: 1.45; }
+.section-heading { color: var(--navy); font-size: 50px; letter-spacing: -3px; line-height: 1.02; margin: 18px 0 50px; }
+
+/* === BUTTONS & TEXT LINKS === */
+.button { display: inline-flex; align-items: center; border: 0; padding: 16px 24px; font-weight: 700; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+.button-primary { background: var(--orange); color: white; box-shadow: 0 9px 24px rgba(239, 91, 23, 0.35); }
+.button-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(239, 91, 23, 0.5); }
+.button-primary span { color: white; }
+.button-ghost { background: var(--glass); color: #fff; border: 1px solid var(--glass-border); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.button-ghost:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-3px); }
+.button-ghost span { color: var(--orange-light); }
+.text-button { border: 0; background: transparent; color: rgba(255, 255, 255, 0.82); font-weight: 600; padding: 8px 0; position: relative; transition: color .25s ease; }
+.text-button:hover { color: var(--orange-light); }
+.nav-cta span, .text-button span, .button span, .circle-link span, .course-arrow span { color: var(--orange); margin-left: 12px; font-size: 18px; }
+.circle-link { background: transparent; border: 1px solid var(--orange); border-radius: 16px; width: fit-content; padding: 16px 26px; display: inline-flex; align-items: center; gap: 4px; color: var(--navy); font-weight: 700; line-height: 1.25; margin-top: 25px; white-space: nowrap; transition: background .25s, color .25s, transform .25s, box-shadow .25s; }
+.circle-link:hover { background: var(--orange); color: white; transform: translateY(-3px); box-shadow: 0 12px 26px rgba(239, 91, 23, 0.35); }
+.circle-link:hover span { color: white; }
+.back-button { border: 0; background: transparent; color: var(--muted); font-weight: 600; margin-bottom: 40px; padding: 0; transition: color .25s; }
+.back-button:hover { color: var(--orange); }
+
+/* === SHARED KEYFRAMES === */
+.image-enter { animation: imageEnter .5s ease both; }
+@keyframes imageEnter { from { opacity: 0.3; transform: scale(1.05); } to { opacity: 1; transform: scale(1); } }
+@keyframes founder-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+
+/* === PAGE SHELL (shared across every inner page) === */
+.page-section { padding-top: 120px; padding-bottom: 120px; min-height: 730px; }
+.page-section:has(> .overlay-hero) { padding-top: 0; }
+.page-heading { display: grid; grid-template-columns: 1fr .65fr; gap: 80px; align-items: start; margin-bottom: 65px; }
+.page-heading h1 { margin-bottom: 0; }
+.page-heading-side { display: flex; flex-direction: column; gap: 18px; }
+.page-heading-side p { color: var(--muted); line-height: 1.8; font-size: 15px; max-width: 340px; margin: 0; }
+
+/* === RESPONSIVE (global) === */
+@media (max-width: 900px) {
+  .page-heading { grid-template-columns: 1fr; gap: 30px; }
+}
+@media (max-width: 800px) {
+  .section-wrap { padding-left: 24px; padding-right: 24px; }
+}
+@media (max-width: 460px) {
+  h1 { font-size: 48px; letter-spacing: -3px; }
+  .section-heading { font-size: 38px; }
+}

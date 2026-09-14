@@ -1,6 +1,7 @@
 import { OverlayHero } from '../common/OverlayHero'
 import { TestimonialsSection } from '../home/TestimonialsSection'
 import { ResultsSection } from './ResultsSection'
+import './TestimonialsResultsPage.css'
 
 export function TestimonialsResultsPage() {
   return <>

@@ -1,3 +1,4 @@
+import './ValuesSection.css'
 import { Reveal } from './Reveal'
 import { values } from '../../data/values'
 

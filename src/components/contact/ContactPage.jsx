@@ -4,6 +4,7 @@ import { ArrowIcon } from '../common/ArrowIcon'
 import { courses } from '../../data/courses'
 import { contactInfo } from '../../data/contactInfo'
 import { OverlayHero } from '../common/OverlayHero'
+import './ContactPage.css'
 
 export function ContactPage() {
   const [formSent, setFormSent] = useState(false)

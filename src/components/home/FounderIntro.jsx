@@ -1,4 +1,5 @@
 import { Reveal } from '../common/Reveal'
+import './FounderIntro.css'
 import { founder } from '../../data/founder'
 
 export function FounderIntro() {

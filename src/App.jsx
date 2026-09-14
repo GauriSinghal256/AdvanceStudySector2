@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import './App.css'
 import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
 import { ScrollTopButton } from './components/layout/ScrollTopButton'

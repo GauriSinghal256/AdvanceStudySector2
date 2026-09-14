@@ -1,4 +1,5 @@
 import { Reveal } from '../common/Reveal'
+import './VideoSection.css'
 
 export function VideoSection() {
   return <section className="video-section">

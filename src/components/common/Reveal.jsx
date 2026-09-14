@@ -1,3 +1,4 @@
+import './Reveal.css'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 
 export function Reveal({ children, delay = 0, className = '' }) {

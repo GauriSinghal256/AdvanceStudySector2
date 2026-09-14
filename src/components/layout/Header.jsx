@@ -1,3 +1,4 @@
+import './Header.css'
 import { NavLink, Link } from 'react-router-dom'
 import { Brand } from '../common/Brand'
 import { contactInfo } from '../../data/contactInfo'

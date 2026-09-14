@@ -1,4 +1,5 @@
 import { Reveal } from '../common/Reveal'
+import './StatsStrip.css'
 import { Counter } from '../common/Counter'
 
 export function StatsStrip() {
