@@ -1,10 +1,12 @@
 import { Reveal } from '../common/Reveal'
 import './FounderIntro.css'
 import { founder } from '../../data/founder'
+import { Link } from 'react-router-dom'
+import { ArrowIcon } from '../common/ArrowIcon'
 
 export function FounderIntro() {
   return <section className="founder-intro section-wrap">
-    <Reveal><div className="founder-intro-portrait"><img src={founder.images[1]} alt={`${founder.name} mentoring at her desk`} /></div></Reveal>
+    <Reveal><div className="founder-intro-portrait"><img src="/achievement3.jpg" alt={`${founder.name} receiving an achievement award`} /></div></Reveal>
     <Reveal delay={120}><div className="founder-intro-info">
       <span className="section-kicker">Meet your mentor</span>
       <h2 className="section-heading">Guided personally by<br /><em>{founder.name}.</em></h2>
@@ -12,6 +14,7 @@ export function FounderIntro() {
       <small className="founder-credentials">{founder.credentials}</small>
       <p className="founder-bio">{founder.bio}</p>
       <ul className="founder-highlights">{founder.highlights.map((h) => <li key={h}><span>✓</span>{h}</li>)}</ul>
+        <Link className="circle-link" to="/about">Know more <ArrowIcon /></Link>
     </div></Reveal>
   </section>
 }

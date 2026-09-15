@@ -4,6 +4,7 @@ import { ArrowIcon } from '../common/ArrowIcon'
 import { courses } from '../../data/courses'
 import { contactInfo } from '../../data/contactInfo'
 import { OverlayHero } from '../common/OverlayHero'
+import { InstagramIcon, FacebookIcon } from '../common/UtilityIcons'
 import './ContactPage.css'
 
 export function ContactPage() {
@@ -17,7 +18,7 @@ export function ContactPage() {
         <div className="detail"><span className="detail-icon">✉</span><div><small>Email us</small><a href={contactInfo.emailHref}>{contactInfo.email}</a></div></div>
         <div className="detail"><span className="detail-icon">⌖</span><div><small>Visit us</small><p>{contactInfo.addressLines.map((line, i) => <span key={line}>{line}{i < contactInfo.addressLines.length - 1 && <br />}</span>)}</p><a className="map-link" href={contactInfo.mapLink} target="_blank" rel="noreferrer">Get directions ↗</a></div></div>
         <div className="detail"><span className="detail-icon">◷</span><div><small>Office hours</small><p>{contactInfo.hours.weekdays}<br />{contactInfo.hours.sunday}</p></div></div>
-        <div className="detail"><span className="detail-icon">☺</span><div><small>Follow us</small><p><a href={contactInfo.social.instagram} target="_blank" rel="noreferrer">Instagram</a> · <a href={contactInfo.social.facebook} target="_blank" rel="noreferrer">Facebook</a></p></div></div>
+        <div className="detail"><span className="detail-icon">☺</span><div><small>Follow us</small><div className="contact-social-links"><a className="contact-social-link" href={contactInfo.social.instagram} target="_blank" rel="noreferrer" aria-label="Follow us on Instagram"><InstagramIcon /></a><a className="contact-social-link" href={contactInfo.social.facebook} target="_blank" rel="noreferrer" aria-label="Follow us on Facebook"><FacebookIcon /></a></div></div></div>
         <div className="map-card"><iframe title="Advance Study Sector location map" src={`https://www.google.com/maps?q=${contactInfo.mapQuery}&output=embed`} loading="lazy" /></div>
       </div></Reveal>
       <Reveal delay={150}>

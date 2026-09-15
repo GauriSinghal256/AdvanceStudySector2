@@ -38,11 +38,6 @@ export function AwardsSection() {
     return () => window.clearInterval(timer)
   }, [])
 
-  const goPrev = () => setIndex((current) => (current - 1 + awards.length) % awards.length)
-  const goNext = () => setIndex((current) => (current + 1) % awards.length)
-
-  const current = awards[index]
-
   return <section className="awards-section">
     <div className="section-wrap">
       <div className="awards-heading">
@@ -53,8 +48,6 @@ export function AwardsSection() {
 
       <Reveal delay={180}>
         <div className="awards-carousel">
-          {awards.length > 1 && <button type="button" className="award-nav award-nav-prev" onClick={goPrev} aria-label="Previous achievement">‹</button>}
-
           <div className="award-stage">
             <div className="award-stage-frame">
               {awards.map((award, i) => <img
@@ -64,12 +57,8 @@ export function AwardsSection() {
                 className={`award-slide ${i === index ? 'active' : ''}`}
                 aria-hidden={i !== index}
               />)}
-              <span className="award-eyebrow">{current.eyebrow}</span>
-              <span key={current.image} className="award-number">0{index + 1}</span>
             </div>
           </div>
-
-          {awards.length > 1 && <button type="button" className="award-nav award-nav-next" onClick={goNext} aria-label="Next achievement">›</button>}
         </div>
       </Reveal>
 

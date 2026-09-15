@@ -5,6 +5,7 @@ import { StatsStrip } from './StatsStrip'
 import { ValuesSection } from '../common/ValuesSection'
 import { VideoSection } from './VideoSection'
 import { CommunitySection } from './CommunitySection'
+import { TestimonialsSection } from './TestimonialsSection'
 import { CtaBanner } from './CtaBanner'
 
 export function HomePage() {
@@ -16,6 +17,7 @@ export function HomePage() {
     <ValuesSection kicker="02 / What we stand for" heading={<>Four values that<br /><em>shape everything.</em></>} />
     <VideoSection />
     <CommunitySection />
+    <TestimonialsSection />
     <CtaBanner />
   </>
 }

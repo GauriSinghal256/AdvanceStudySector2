@@ -6,6 +6,7 @@
 .community-card { overflow: hidden; border-radius: 16px; position: relative; cursor: pointer; }
 .community-card img { width: 100%; height: 340px; object-fit: cover; object-position: top center; transition: transform .8s cubic-bezier(0.16, 1, 0.3, 1), filter .8s ease; filter: saturate(.88); }
 .community-card:hover img { transform: scale(1.08); filter: saturate(1.12); }
+.community-card:active img { transform: scale(1.04); filter: saturate(1.05); }
 .community-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 24px; display: flex; align-items: center; justify-content: space-between; color: #fff; background: linear-gradient(180deg, transparent, rgba(8, 29, 48, 0.85)); }
 .community-overlay strong { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 500; }
 .community-overlay span { color: var(--orange); font-size: 20px; }
@@ -13,3 +14,9 @@
 @media (max-width: 900px) { .community-heading { grid-template-columns: 1fr; gap: 30px; } .community-grid { grid-template-columns: 1fr; } }
 @media (max-width: 800px) { .community-heading h2 { font-size: 42px; } .community-card img { height: 280px; } }
 @media (max-width: 460px) { .community-card img { height: 230px; } }
+@media (max-width: 900px) {
+	.community-section { padding-bottom: 54px; }
+	.community-heading { text-align: center; }
+	.community-heading > p { margin-left: auto; margin-right: auto; }
+	.community-card { max-width: 560px; width: 100%; margin: 0 auto; }
+}
