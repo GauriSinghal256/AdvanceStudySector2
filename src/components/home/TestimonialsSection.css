@@ -1,15 +1,17 @@
 .testimonials-section { padding: 100px 0; background: var(--cream); }
-.testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; perspective: 1200px; }
-.testimonial-reveal.reveal { opacity: 0; transform: translateY(76px) scale(.86) rotate(1.5deg) rotateX(10deg); transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
-.testimonial-reveal.reveal-in { opacity: 1; transform: translateY(0) scale(1) rotate(0) rotateX(0); }
+.testimonials-grid { display: grid; grid-template-columns: minmax(0, 760px); justify-content: center; perspective: 1200px; }
+.testimonial-carousel-reveal.reveal { opacity: 0; transform: translateY(76px) scale(.86) rotate(1.5deg) rotateX(10deg); transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.testimonial-carousel-reveal.reveal-in { opacity: 1; transform: translateY(0) scale(1) rotate(0) rotateX(0); }
 .testimonial-card {
   background: linear-gradient(160deg, var(--navy-deep) 0%, #0a2438 100%);
-  border-radius: 18px; padding: 38px 34px; position: relative; overflow: hidden;
+  border-radius: 18px; padding: 38px 34px; height: 320px; box-sizing: border-box; display: flex; flex-direction: column; position: relative; overflow: hidden;
   border: 1px solid rgba(255,255,255,.08);
-  animation: testimonial-float 6s ease-in-out infinite;
-  animation-delay: var(--testimonial-delay, 0s);
+  animation: testimonial-enter .7s cubic-bezier(0.16, 1, 0.3, 1), testimonial-float 6s ease-in-out .7s infinite;
   transition: transform .3s, box-shadow .3s, border-color .3s;
 }
+.testimonial-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+.testimonial-dots button { width: 8px; height: 8px; padding: 0; background: rgba(8, 29, 48, .24); border: 0; border-radius: 50%; transition: all .3s; }
+.testimonial-dots button.selected { width: 24px; background: var(--orange); border-radius: 4px; }
 .testimonial-card::before {
   content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--orange);
   transition: height .4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -17,9 +19,10 @@
 .testimonial-card:hover::before { height: 100%; }
 .testimonial-card:hover { animation-play-state: paused; transform: translateY(-8px); box-shadow: 0 20px 44px rgba(8,29,48,0.28); border-color: rgba(239,91,23,.35); }
 @keyframes testimonial-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes testimonial-enter { from { opacity: 0; transform: translateX(-56px) scale(.98); } to { opacity: 1; transform: translateX(0) scale(1); } }
 .quote-mark { font-family: 'Playfair Display', serif; font-size: 64px; color: var(--orange); line-height: 0.5; position: absolute; top: 30px; right: 30px; opacity: 0.18; }
 .testimonial-card p { color: #e6eff1; font-size: 15px; line-height: 1.75; margin: 0 0 28px; }
-.testimonial-author { display: flex; align-items: center; gap: 14px; }
+.testimonial-author { display: flex; align-items: center; gap: 14px; margin-top: auto; }
 .testimonial-avatar { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: rgba(239,91,23,.14); border: 1px solid rgba(239,91,23,.4); color: var(--orange-light); font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; }
 .testimonial-author strong { display: block; color: #fff; font-size: 14px; }
 .google-review-link { display: block; width: fit-content; color: var(--orange); font-size: 11px; font-weight: 600; transition: color .2s ease, transform .2s ease; }
@@ -27,12 +30,13 @@
 
 @media (max-width: 900px) {
   .testimonials-section { padding-top: 54px; }
-  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: minmax(0, 1fr); }
+  .testimonial-card { height: 360px; }
 }
 @media (hover: none) {
   .testimonial-card:active { transform: translateY(-4px) scale(.99); box-shadow: 0 14px 30px rgba(8,29,48,0.24); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .testimonial-reveal.reveal, .testimonial-reveal.reveal-in { opacity: 1; transform: none; transition: none; }
+  .testimonial-carousel-reveal.reveal, .testimonial-carousel-reveal.reveal-in { opacity: 1; transform: none; transition: none; }
   .testimonial-card { animation: none; }
 }
