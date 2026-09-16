@@ -25,6 +25,8 @@
 .course-card-img:active { transform: translateY(-3px) scale(.99); }
 
 .course-footer { display: flex; gap: 20px; align-items: center; justify-content: flex-end; color: var(--muted); font-size: 13px; margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--line); }
+.course-footer .text-button { color: #000; }
+.course-footer .text-button:hover, .course-footer .text-button:focus-visible { color: #000; }
 
 /* === FAQ === */
 .faq-section { margin-top: 90px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: clamp(32px, 5vw, 56px); box-shadow: 0 16px 40px rgba(13,47,74,0.06); }

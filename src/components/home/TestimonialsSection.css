@@ -4,7 +4,7 @@
 .testimonial-carousel-reveal.reveal-in { opacity: 1; transform: translateY(0) scale(1) rotate(0) rotateX(0); }
 .testimonial-card {
   background: linear-gradient(160deg, var(--navy-deep) 0%, #0a2438 100%);
-  border-radius: 18px; padding: 38px 34px; height: 320px; box-sizing: border-box; display: flex; flex-direction: column; position: relative; overflow: hidden;
+  border-radius: 18px; padding: 30px 34px; min-height: 250px; box-sizing: border-box; display: flex; flex-direction: column; position: relative; overflow: hidden;
   border: 1px solid rgba(255,255,255,.08);
   animation: testimonial-enter .7s cubic-bezier(0.16, 1, 0.3, 1), testimonial-float 6s ease-in-out .7s infinite;
   transition: transform .3s, box-shadow .3s, border-color .3s;
@@ -21,6 +21,7 @@
 @keyframes testimonial-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 @keyframes testimonial-enter { from { opacity: 0; transform: translateX(-56px) scale(.98); } to { opacity: 1; transform: translateX(0) scale(1); } }
 .quote-mark { font-family: 'Playfair Display', serif; font-size: 64px; color: var(--orange); line-height: 0.5; position: absolute; top: 30px; right: 30px; opacity: 0.18; }
+.testimonial-label { display: block; color: var(--orange-light); font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 18px; }
 .testimonial-card p { color: #e6eff1; font-size: 15px; line-height: 1.75; margin: 0 0 28px; }
 .testimonial-author { display: flex; align-items: center; gap: 14px; margin-top: auto; }
 .testimonial-avatar { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: rgba(239,91,23,.14); border: 1px solid rgba(239,91,23,.4); color: var(--orange-light); font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; }
@@ -31,7 +32,7 @@
 @media (max-width: 900px) {
   .testimonials-section { padding-top: 54px; }
   .testimonials-grid { grid-template-columns: minmax(0, 1fr); }
-  .testimonial-card { height: 360px; }
+  .testimonial-card { min-height: 280px; }
 }
 @media (hover: none) {
   .testimonial-card:active { transform: translateY(-4px) scale(.99); box-shadow: 0 14px 30px rgba(8,29,48,0.24); }

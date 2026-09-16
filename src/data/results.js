@@ -1,7 +1,6 @@
 export const resultStats = [
   { value: '500', suffix: '+', label: 'Students mentored across all wings' },
   { value: '95', suffix: '%', label: 'Board exam pass rate, year on year' },
-  { value: '60', suffix: '+', label: 'Bank & government exam selections' },
   { value: '12', suffix: ' yrs', label: 'Serving students in Kurukshetra' },
   { value: '8', suffix: '', label: 'Average students per batch' },
 ]

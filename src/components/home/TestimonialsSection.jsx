@@ -28,7 +28,8 @@ export function TestimonialsSection() {
       <Reveal className="testimonial-carousel-reveal">
         <div className="testimonials-grid">
           <div className="testimonial-card" key={`${testimonial.name}-${testimonialIndex}`}>
-            <div className="quote-mark">"</div>
+            <div className="quote-mark">&quot;</div>
+            <span className="testimonial-label">Learner review</span>
             <p>{testimonial.quote}</p>
             <div className="testimonial-author"><span className="testimonial-avatar">{initials(testimonial.name)}</span><div><strong>{testimonial.name}</strong><a className="google-review-link" href={contactInfo.mapLink} target="_blank" rel="noreferrer">{testimonial.role}</a></div></div>
           </div>
