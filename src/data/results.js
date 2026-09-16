@@ -7,10 +7,14 @@ export const resultStats = [
 ]
 
 export const toppers = [
-  { name: 'Ishika Rana', achievement: 'Class 10th Board Exam', score: '97.2%', course: 'Primary Wing' },
-  { name: 'Aryan Kaushik', achievement: 'Class 12th, Medical Stream', score: '95.8%', course: 'Senior Wing' },
-  { name: 'Simran Kaur', achievement: 'Bank PO — Officer Scale I', score: 'Selected', course: 'Banking & Government Exam Coaching' },
-  { name: 'Devansh Malik', achievement: 'B.Com Final Year', score: '89%', course: 'Graduation & Post-Graduation' },
-  { name: 'Priya Sharma', achievement: 'Class 12th, Commerce Stream', score: '94.4%', course: 'Senior Wing' },
-  { name: 'Rohit Bansal', achievement: 'Bank Clerk to Officer Promotion', score: 'Promoted', course: 'Banking & Government Exam Coaching' },
+  { name: 'Adhyay', achievement: 'Student achievement', score: '98%', course: 'Advance Study Sector' },
+  { name: 'Tanay', achievement: 'Student achievement', score: '95%', course: 'Advance Study Sector' },
+  { name: 'Nikunj', achievement: 'Student achievement', score: '94%', course: 'Advance Study Sector' },
+  { name: 'Aanvi', achievement: 'Student achievement', score: '88%', course: 'Advance Study Sector' },
+]
+
+export const instagramVideos = [
+  { id: 'DNSGSzpt_LN', title: 'Student moments at Advance Study Sector' },
+  { id: 'DJ8c-0wPcuS', title: 'Calligraphy learning skills' },
+  { id: 'DJgHrJuPCxR', title: 'Sunday activity with our juniors' },
 ]

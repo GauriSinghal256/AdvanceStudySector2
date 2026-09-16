@@ -1,4 +1,4 @@
-.awards-section { padding: 64px 0 120px; background: var(--cream); }
+.awards-section { padding: 0 0 120px; background: var(--cream); }
 .awards-heading { display: grid; grid-template-columns: .8fr 1.2fr 1fr; gap: 34px; align-items: end; margin-bottom: 56px; }
 .awards-heading .section-heading { margin: 14px 0 0; }
 .awards-heading p { color: var(--muted); font-size: 15px; line-height: 1.8; max-width: 330px; margin: 0 0 3px; }
@@ -6,10 +6,9 @@
 /* === carousel shell === */
 .awards-carousel { position: relative; display: flex; align-items: center; gap: 22px; max-width: 920px; margin: 0 auto; }
 .award-stage { flex: 1; min-width: 0; }
-.award-stage-frame { position: relative; height: 460px; border-radius: 22px; overflow: hidden; background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); border: 1px solid rgba(255, 255, 255, .08); box-shadow: 0 26px 60px rgba(13, 47, 74, .22); }
-.award-stage-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 58%, rgba(8, 29, 48, .6)); pointer-events: none; }
-.award-stage-frame img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; opacity: 0; transform: scale(1.03); transition: opacity .7s ease, transform .9s cubic-bezier(.16, 1, .3, 1); }
-.award-stage-frame img.active { opacity: 1; transform: scale(1); }
+.award-stage-frame { position: relative; height: 680px; border-radius: 22px; overflow: hidden; background: var(--navy-deep); border: 1px solid rgba(255, 255, 255, .08); box-shadow: 0 26px 60px rgba(13, 47, 74, .22); }
+.award-stage-frame img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; opacity: 0; transition: opacity .7s ease; }
+.award-stage-frame img.active { opacity: 1; }
 
 .award-eyebrow { position: absolute; z-index: 1; left: 22px; top: 22px; background: rgba(255, 255, 255, .12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; padding: 9px 15px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .18); }
 .award-number { position: absolute; z-index: 1; right: 24px; bottom: 18px; color: #fff; font-family: 'Playfair Display', serif; font-size: 40px; line-height: 1; animation: awardNumberEnter .7s cubic-bezier(.16, 1, .3, 1) both; }
@@ -32,15 +31,15 @@
 @media (max-width: 900px) {
   .awards-heading { grid-template-columns: 1fr 1fr; }
   .awards-heading p { grid-column: 2; }
-  .award-stage-frame { height: 400px; }
+  .award-stage-frame { height: 480px; }
 }
 @media (max-width: 640px) {
-  .awards-section { padding: 48px 0 90px; }
+  .awards-section { padding: 0 0 90px; }
   .awards-heading { display: block; }
   .awards-heading p { margin: 22px 0 0; }
   .awards-carousel { gap: 8px; }
   .award-nav { width: 40px; height: 40px; font-size: 19px; }
-  .award-stage-frame { height: min(72vw, 320px); min-height: 230px; border-radius: 16px; }
+  .award-stage-frame { height: min(90vw, 420px); min-height: 280px; border-radius: 16px; }
   .award-eyebrow { left: 14px; top: 14px; font-size: 10px; padding: 7px 11px; }
   .award-number { right: 16px; bottom: 12px; font-size: 28px; }
   .award-thumb { width: 52px; height: 52px; border-radius: 10px; }
@@ -48,7 +47,7 @@
   .award-thumb:active { transform: scale(.94); }
 }
 @media (max-width: 400px) {
-  .award-stage-frame { height: 220px; }
+  .award-stage-frame { height: 300px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .award-stage-frame img, .award-number { transition: none; animation: none; }

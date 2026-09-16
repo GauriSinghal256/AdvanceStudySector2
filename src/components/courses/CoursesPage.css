@@ -4,7 +4,8 @@
 
 /* === COURSE GRID (image cards) === */
 .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.course-card-img { display: flex; flex-direction: column; border-radius: 18px; overflow: hidden; background: #fff; box-shadow: 0 14px 34px rgba(13, 47, 74, 0.1); border: 1px solid var(--line); position: relative; transition: transform .35s cubic-bezier(0.16,1,0.3,1), box-shadow .35s ease, border-color .35s ease; }
+.course-grid > .reveal { display: flex; }
+.course-card-img { display: flex; flex-direction: column; width: 100%; height: 100%; min-height: 460px; border-radius: 18px; overflow: hidden; background: #fff; box-shadow: 0 14px 34px rgba(13, 47, 74, 0.1); border: 1px solid var(--line); position: relative; transition: transform .35s cubic-bezier(0.16,1,0.3,1), box-shadow .35s ease, border-color .35s ease; }
 .course-card-img::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--orange), var(--orange-light)); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(0.16,1,0.3,1); z-index: 2; }
 .course-card-img:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(13, 47, 74, 0.18); border-color: rgba(239,91,23,.28); }
 .course-card-img:hover::before { transform: scaleX(1); }

@@ -17,6 +17,7 @@ export function ResultsSection() {
         <p>{t.achievement}</p>
         <small>{t.course}</small>
       </div></Reveal>)}</div>
+
     </div>
   </section>
 }
