@@ -30,8 +30,7 @@ nav a:hover, nav a.active, nav button:hover, nav button.active { color: var(--or
 .nav-utility-mobile { display: none; }
 @media (max-width: 1150px) { .pill-label { display: none; } .text-pill { padding: 10px; } }
 @media (max-width: 800px) {
-  /* Solid white navbar on mobile (never transparent, even before scroll) */
-  .site-header, .site-header.header-scrolled { background: #fff; box-shadow: 0 2px 18px rgba(13, 47, 74, .08); }
+  .site-header, .site-header.header-scrolled { background: transparent; box-shadow: none; }
 
   /* Nav links + hamburger read as dark text on the white bar */
   nav a, nav button,

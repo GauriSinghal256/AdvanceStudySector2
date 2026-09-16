@@ -18,6 +18,7 @@
 .course-card-subtitle { color: var(--orange); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.4px; }
 .course-card-img-body h3 { color: var(--navy); font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 500; margin: 0; }
 .course-card-img-body p { color: var(--muted); font-size: 13.5px; line-height: 1.6; margin: 0; flex: 1; }
+.course-card-img-body .course-card-detail { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; flex: 0 0 auto; font-size: 13px; line-height: 1.5; color: var(--navy); opacity: .72; }
 .course-card-cta { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); font-weight: 700; font-size: 13px; margin-top: 10px; transition: color .25s ease, gap .25s ease; }
 .course-card-cta span { color: var(--orange); }
 .course-card-img:hover .course-card-cta { color: var(--orange); gap: 12px; }

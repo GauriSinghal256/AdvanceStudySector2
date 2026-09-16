@@ -19,6 +19,7 @@ export function CoursesPage() {
         <span className="course-card-subtitle">{course.subtitle}</span>
         <h3>{course.title}</h3>
         <p>{course.tagline}</p>
+        <p className="course-card-detail">{course.detail}</p>
         <span className="course-card-cta">View course <ArrowIcon /></span>
       </div>
     </Link></Reveal>)}</div>
