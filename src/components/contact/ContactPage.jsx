@@ -35,7 +35,7 @@ export function ContactPage() {
   }
 
   return <section className="page-section contact-page section-wrap">
-    <OverlayHero label="08 / Let's talk" title={<>Your next chapter<br /><em>starts here.</em></>} intro="Have a question about a course or your best path forward? Our team would love to hear from you." image="https://images.pexels.com/photos/5427674/pexels-photo-5427674.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400" imageAlt="Advisor ready to help" />
+    <OverlayHero label="08 / Let's talk" title={<>Your next chapter<br /><em>starts here.</em></>} intro="Have a question about a course or your best path forward? Our team would love to hear from you." image="/contactus/images.jpg" imageAlt="Advisor ready to help" />
     <div className="contact-grid">
       <Reveal><div className="contact-details">
         <div className="detail"><span className="detail-icon">↗</span><div><small>Call us</small><a href={contactInfo.phoneHref}>{contactInfo.phone}</a></div></div>
