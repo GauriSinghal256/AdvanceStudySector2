@@ -6,11 +6,15 @@ import { ArrowIcon } from '../common/ArrowIcon'
 export function Hero() {
   return <section className="hero-cinematic">
     <div className="hero-video-layer">
-      <iframe
+      <video
         className="hero-video-frame"
-        src="https://player.cloudinary.com/embed/?cloud_name=ekmijnj9&public_id=lv_0_20260920215051_1_-compressed&autoplay=true&muted=true&loop=true&controls=false"
+        src="https://res.cloudinary.com/ekmijnj9/video/upload/f_auto,q_auto/lv_0_20260920215051_1_-compressed.mp4"
         title="Advance Study Sector"
-        allow="autoplay; fullscreen"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
         allowFullScreen
         tabIndex={-1}
       />
