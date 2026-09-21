@@ -1,4 +1,4 @@
-.founder-section { padding: 72px 0 112px; }
+.founder-section { padding: 72px 0 76px; }
 .founder-heading { text-align: center; }
 .founder-heading .section-heading { margin-bottom: 52px; }
 .founder-grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: clamp(44px, 5vw, 76px); align-items: start; margin-top: 0; }

@@ -3,7 +3,7 @@ import { FounderIntro } from './FounderIntro'
 import { Marquee } from './Marquee'
 import { StatsStrip } from './StatsStrip'
 import { ValuesSection } from '../common/ValuesSection'
-import { VideoSection } from './VideoSection'
+import { GallerySection } from './GallerySection'
 import { CommunitySection } from './CommunitySection'
 import { TestimonialsSection } from './TestimonialsSection'
 import { CtaBanner } from './CtaBanner'
@@ -15,7 +15,7 @@ export function HomePage() {
     <StatsStrip />
     <FounderIntro />
     <ValuesSection kicker="02 / What we stand for" heading={<>Four values that<br /><em>shape everything.</em></>} />
-    <VideoSection />
+    <GallerySection />
     <CommunitySection />
     <TestimonialsSection />
     <CtaBanner />

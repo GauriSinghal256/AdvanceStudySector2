@@ -9,17 +9,19 @@ function initials(name) {
 }
 
 export function TestimonialsSection() {
-  const [testimonialIndex, setTestimonialIndex] = useState(0)
+  const [pairIndex, setPairIndex] = useState(0)
 
   useEffect(() => {
     if (testimonials.length < 2) return
     const timer = window.setInterval(() => {
-      setTestimonialIndex((current) => (current + 1) % testimonials.length)
-    }, 3000)
+      setPairIndex((current) => (current + 1) % testimonials.length)
+    }, 4200)
     return () => window.clearInterval(timer)
   }, [])
 
-  const testimonial = testimonials[testimonialIndex]
+  const visiblePair = testimonials.length < 2
+    ? [testimonials[0]]
+    : [testimonials[pairIndex], testimonials[(pairIndex + 1) % testimonials.length]]
 
   return <section className="testimonials-section">
     <div className="section-wrap">
@@ -27,15 +29,19 @@ export function TestimonialsSection() {
       <Reveal delay={80}><h2 className="section-heading">What our learners<br /><em>say about us.</em></h2></Reveal>
       <Reveal className="testimonial-carousel-reveal">
         <div className="testimonials-grid">
-          <div className="testimonial-card" key={`${testimonial.name}-${testimonialIndex}`}>
+          {visiblePair.map((testimonial, position) => <div
+            className="testimonial-card"
+            key={`${testimonial.name}-${pairIndex}-${position}`}
+            style={{ animationDelay: `${position * 140}ms, ${position * 140 + 700}ms` }}
+          >
             <div className="quote-mark">&quot;</div>
             <span className="testimonial-label">Learner review</span>
             <p>{testimonial.quote}</p>
             <div className="testimonial-author"><span className="testimonial-avatar">{initials(testimonial.name)}</span><div><strong>{testimonial.name}</strong><a className="google-review-link" href={contactInfo.mapLink} target="_blank" rel="noreferrer">{testimonial.role}</a></div></div>
-          </div>
+          </div>)}
         </div>
         <div className="testimonial-dots" aria-label="Testimonial navigation">
-          {testimonials.map((item, index) => <button type="button" key={`${item.name}-${index}`} className={testimonialIndex === index ? 'selected' : ''} onClick={() => setTestimonialIndex(index)} aria-label={`Show testimonial ${index + 1}`} />)}
+          {testimonials.map((item, index) => <button type="button" key={`${item.name}-${index}`} className={pairIndex === index ? 'selected' : ''} onClick={() => setPairIndex(index)} aria-label={`Show testimonial ${index + 1}`} />)}
         </div>
       </Reveal>
     </div>

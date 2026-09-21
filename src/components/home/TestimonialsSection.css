@@ -1,5 +1,5 @@
 .testimonials-section { padding: 100px 0; background: var(--cream); }
-.testimonials-grid { display: grid; grid-template-columns: minmax(0, 760px); justify-content: center; perspective: 1200px; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; max-width: 980px; margin: 0 auto; justify-content: center; align-items: stretch; perspective: 1200px; }
 .testimonial-carousel-reveal.reveal { opacity: 0; transform: translateY(76px) scale(.86) rotate(1.5deg) rotateX(10deg); transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
 .testimonial-carousel-reveal.reveal-in { opacity: 1; transform: translateY(0) scale(1) rotate(0) rotateX(0); }
 .testimonial-card {
@@ -29,9 +29,9 @@
 .google-review-link { display: block; width: fit-content; color: var(--orange); font-size: 11px; font-weight: 600; transition: color .2s ease, transform .2s ease; }
 .google-review-link:hover, .google-review-link:focus-visible { color: var(--orange-light); transform: translateX(2px); }
 
-@media (max-width: 900px) {
+@media (max-width: 720px) {
   .testimonials-section { padding-top: 54px; }
-  .testimonials-grid { grid-template-columns: minmax(0, 1fr); }
+  .testimonials-grid { grid-template-columns: minmax(0, 1fr); max-width: 520px; gap: 20px; }
   .testimonial-card { min-height: 280px; }
 }
 @media (hover: none) {

@@ -1,8 +1,8 @@
 .brand { display: flex; align-items: center; gap: 10px; }
 .brand-logo { height: 42px; width: auto; max-width: 240px; object-fit: contain; transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1); }
-.brand-large .brand-logo { height: 68px; transform: scale(1.7); transform-origin: left center; transition: transform .4s ease; }
+.brand-large .brand-logo { height: 58px; }
 .brand-compact .brand-logo { height: 38px; }
 
 @media (max-width: 800px) {
-	.brand-large .brand-logo { height: 62px; max-width: 220px; transform: scale(1.7); }
+	.brand-large .brand-logo { height: 40px; max-width: 160px; }
 }
