@@ -1,8 +1,8 @@
 export const founder = {
   name: 'Dr. Monika Rohilla',
   role: 'Founder & Lead Mentor',
-  img: '/founder.jpg',
-  images: ['/founder.jpg', '/achievement3.jpg', '/founder3.jpg'],
+  img: '/aboutus/founder.jpg',
+  images: ['/aboutus/about4.jpg', '/aboutus/founder.jpg', '/aboutus/founder2.jpg', '/aboutus/founder3.jpg', '/aboutus/founder6.jpg'],
   credentials: 'Assistant Professor, NIILM University · Director of Advance Study',
   bio: "Dr. Monika Rohilla founded Advance Study Sector to give students in Kurukshetra a place where school subjects, higher studies and real skills like handwriting and calligraphy get the same care and attention. Over the years she has personally trained many teachers and students across the city.",
   profile: [

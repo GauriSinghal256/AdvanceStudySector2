@@ -6,7 +6,7 @@ import { ArrowIcon } from '../common/ArrowIcon'
 
 export function FounderIntro() {
   return <section className="founder-intro section-wrap">
-    <Reveal><div className="founder-intro-portrait"><img src="/achievement3.jpg" alt={`${founder.name} receiving an achievement award`} /></div></Reveal>
+    <Reveal><div className="founder-intro-portrait"><img src="/aboutus/founder6.jpg" alt={`${founder.name} receiving an achievement award`} /></div></Reveal>
     <Reveal delay={120}><div className="founder-intro-info">
       <span className="section-kicker">Meet your mentor</span>
       <h2 className="section-heading">Guided personally by<br /><em>{founder.name}.</em></h2>

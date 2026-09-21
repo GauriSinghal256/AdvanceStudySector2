@@ -12,7 +12,7 @@ export function CoursesPage() {
   const [openFaq, setOpenFaq] = useState(0)
 
   return <section className="page-section courses-page section-wrap">
-    <OverlayHero label="07 / What we teach" title={<>Courses built for<br /><em>your next move.</em></>} intro="From junior wing to banking exam coaching — choose a focused path, learn from mentors who care and leave with skills that make a difference." image="/cource.jpg" imageAlt="Advance Study Sector course information" />
+    <OverlayHero label="07 / What we teach" title={<>Courses built for<br /><em>your next move.</em></>} intro="From junior wing to banking exam coaching — choose a focused path, learn from mentors who care and leave with skills that make a difference." image="/cources/cources.jpg" imageAlt="Advance Study Sector course information" />
     <div className="course-grid">{courses.map((course, i) => <Reveal key={course.slug} delay={i * 80}><Link className="course-card-img" to={`/courses/${course.slug}`}>
       <div className="course-card-img-wrap"><img src={course.image} alt={course.title} /><span className="course-number">{course.icon}</span></div>
       <div className="course-card-img-body">

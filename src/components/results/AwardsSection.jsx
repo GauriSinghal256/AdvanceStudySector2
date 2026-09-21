@@ -4,24 +4,29 @@ import './AwardsSection.css'
 
 const awards = [
   {
-    image: '/achievement1.jpg',
+    image: '/achievements/achievement1.jpg',
     eyebrow: 'Achievement 01',
     alt: 'Award being presented at a recognition ceremony',
   },
   {
-    image: '/achivement2.jpg',
+    image: '/achievements/achievement2.jpg',
     eyebrow: 'Achievement 02',
     alt: 'Founder seated at the Advance Study Sector office',
   },
   {
-    image: '/achievement3.jpg',
+    image: '/achievements/achievement4.png',
     eyebrow: 'Achievement 03',
-    alt: 'Founder holding an award plaque',
+    alt: 'Recognition and achievement at Advance Study Sector',
   },
   {
-    image: '/achievement4.png',
+    image: '/achievements/achievement6.jpg',
     eyebrow: 'Achievement 04',
-    alt: 'Recognition and achievement at Advance Study Sector',
+    alt: 'Achievement recognition at Advance Study Sector',
+  },
+  {
+    image: '/achievements/result4.jpg',
+    eyebrow: 'Results 01',
+    alt: 'Student achievement results at Advance Study Sector',
   },
   // To add more achievements later, just add another { image, eyebrow, alt }
   // object here — the carousel, dots and thumbnails update automatically.
