@@ -28,6 +28,8 @@
 .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--orange); background: #fff; box-shadow: 0 0 0 4px rgba(239,91,23,.1); }
 .contact-form .optional { color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0; margin-left: 4px; }
 .contact-form .button { margin-top: 32px; width: 100%; justify-content: center; }
+.contact-form .button:disabled { opacity: .65; cursor: wait; }
+.form-error { color: #b33a2b; font-size: 13px; line-height: 1.5; margin: 20px 0 -12px; }
 .form-success { padding: 45px 0; }
 .form-success > span { color: #fff; background: #3d9270; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; }
 .form-success h2 { margin: 25px 0 8px; }
