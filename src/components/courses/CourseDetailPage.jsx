@@ -17,23 +17,35 @@ export function CourseDetailPage() {
       <Link className="button button-primary" to="/contact">Enquire now <ArrowIcon /></Link>
     </OverlayHero>
 
-    <Reveal delay={150}><div className="detail-content">
-      <div><span className="section-kicker">What you will explore</span><h2>A focused path<br /><em>with room to grow.</em></h2></div>
-      <div>
+    <div className="detail-layout">
+      <Reveal delay={150}><div className="detail-main">
+        <span className="section-kicker">What you will explore</span>
+        <h2 className="detail-heading">A focused path<br /><em>with room to grow.</em></h2>
         <p className="lead">Every course is built to give you clarity, confidence and a useful next step.</p>
-        <ul>{course.points.map((point) => <li key={point}><span>✓</span>{point}</li>)}</ul>
-        <div className="detail-meta">
-          <div><small>Duration</small><strong>{course.duration}</strong></div>
-          <div><small>Level</small><strong>{course.level}</strong></div>
-          <div><small>Batch size</small><strong>{course.seats}</strong></div>
+        <ul className="detail-points">{course.points.map((point) => <li key={point}><span>✓</span>{point}</li>)}</ul>
+      </div></Reveal>
+
+      <Reveal delay={220} className="detail-sidebar">
+        <div className="detail-sidebar-card">
+          <div className="detail-sidebar-image"><img src={course.image} alt={course.title} /></div>
+          <div className="detail-sidebar-body">
+            <h4>Course at a glance</h4>
+            <ul className="detail-meta-list">
+              <li><span>Duration</span><strong>{course.duration}</strong></li>
+              <li><span>Level</span><strong>{course.level}</strong></li>
+              <li><span>Batch size</span><strong>{course.seats}</strong></li>
+            </ul>
+            <Link className="button button-primary detail-sidebar-cta" to="/contact">Enquire now <ArrowIcon /></Link>
+            <p className="detail-sidebar-note">Small batches, personal mentorship — seats fill quickly.</p>
+          </div>
         </div>
-      </div>
-    </div></Reveal>
+      </Reveal>
+    </div>
 
     {course.subjects && <Reveal delay={200}><div className="subjects-block">
       <span className="section-kicker">Subjects covered</span>
       <h3>Everything included<br /><em>in this course.</em></h3>
-      <div className="subject-chips">{course.subjects.map((s) => <span className="subject-chip" key={s}>{s}</span>)}</div>
+      <div className="subjects-panel"><div className="subject-chips">{course.subjects.map((s) => <span className="subject-chip" key={s}>{s}</span>)}</div></div>
     </div></Reveal>}
 
     {course.streams && <Reveal delay={220}><div className="stream-block">

@@ -1,13 +1,14 @@
 .testimonials-section { padding: 100px 0; background: var(--cream); }
-.testimonials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; max-width: 980px; margin: 0 auto; justify-content: center; align-items: stretch; perspective: 1200px; }
-.testimonial-carousel-reveal.reveal { opacity: 0; transform: translateY(76px) scale(.86) rotate(1.5deg) rotateX(10deg); transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
-.testimonial-carousel-reveal.reveal-in { opacity: 1; transform: translateY(0) scale(1) rotate(0) rotateX(0); }
+.testimonials-viewport { max-width: 980px; margin: 0 auto; overflow: hidden; }
+.testimonials-grid { --testimonial-step: 503px; display: flex; gap: 26px; align-items: stretch; width: max-content; transform: translateX(calc(var(--testimonial-index) * var(--testimonial-step) * -1)); transition: transform .9s cubic-bezier(0.16, 1, 0.3, 1); }
+.testimonial-carousel-reveal.reveal { opacity: 0; transform: translateY(32px); transition: opacity .8s ease, transform .8s cubic-bezier(0.16, 1, 0.3, 1); }
+.testimonial-carousel-reveal.reveal-in { opacity: 1; transform: translateY(0); }
 .testimonial-card {
   background: linear-gradient(160deg, var(--navy-deep) 0%, #0a2438 100%);
   border-radius: 18px; padding: 30px 34px; min-height: 250px; box-sizing: border-box; display: flex; flex-direction: column; position: relative; overflow: hidden;
   border: 1px solid rgba(255,255,255,.08);
-  animation: testimonial-enter .7s cubic-bezier(0.16, 1, 0.3, 1), testimonial-float 6s ease-in-out .7s infinite;
-  transition: transform .3s, box-shadow .3s, border-color .3s;
+  transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .35s ease, border-color .35s ease;
+  flex: 0 0 calc((980px - 26px) / 2);
 }
 .testimonial-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
 .testimonial-dots button { width: 8px; height: 8px; padding: 0; background: rgba(8, 29, 48, .24); border: 0; border-radius: 50%; transition: all .3s; }
@@ -17,9 +18,7 @@
   transition: height .4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .testimonial-card:hover::before { height: 100%; }
-.testimonial-card:hover { animation-play-state: paused; transform: translateY(-8px); box-shadow: 0 20px 44px rgba(8,29,48,0.28); border-color: rgba(239,91,23,.35); }
-@keyframes testimonial-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-@keyframes testimonial-enter { from { opacity: 0; transform: translateX(-56px) scale(.98); } to { opacity: 1; transform: translateX(0) scale(1); } }
+.testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 20px 44px rgba(8,29,48,0.28); border-color: rgba(239,91,23,.35); }
 .quote-mark { font-family: 'Playfair Display', serif; font-size: 64px; color: var(--orange); line-height: 0.5; position: absolute; top: 30px; right: 30px; opacity: 0.18; }
 .testimonial-label { display: block; color: var(--orange-light); font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 18px; }
 .testimonial-card p { color: #e6eff1; font-size: 15px; line-height: 1.75; margin: 0 0 28px; }
@@ -31,13 +30,17 @@
 
 @media (max-width: 720px) {
   .testimonials-section { padding-top: 54px; }
-  .testimonials-grid { grid-template-columns: minmax(0, 1fr); max-width: 520px; gap: 20px; }
-  .testimonial-card { min-height: 280px; }
+  .testimonials-viewport { max-width: 520px; }
+  .testimonials-grid { --testimonial-step: calc(100vw - 40px + 20px); gap: 20px; }
+  .testimonial-card { flex-basis: calc(100vw - 40px); min-height: 210px; padding: 24px 22px; }
+  .testimonial-card p { line-height: 1.55; margin-bottom: 20px; }
 }
 @media (hover: none) {
   .testimonial-card:active { transform: translateY(-4px) scale(.99); box-shadow: 0 14px 30px rgba(8,29,48,0.24); }
 }
 @media (prefers-reduced-motion: reduce) {
   .testimonial-carousel-reveal.reveal, .testimonial-carousel-reveal.reveal-in { opacity: 1; transform: none; transition: none; }
-  .testimonial-card { animation: none; }
+  .testimonials-grid { transition: none; }
 }
+
+.testimonials-section { padding-top: 24px; }

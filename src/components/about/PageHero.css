@@ -1,6 +1,10 @@
-.about-page { padding-top: 0; }
-.about-page > .overlay-hero { width: 100vw; margin: 0 0 24px calc(50% - 50vw); }
+.about-hero > .overlay-hero {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
 
-@media (max-width: 900px) {
-  .about-page > .overlay-hero { width: 100vw; margin-left: calc(50% - 50vw); margin-right: 0; }
+.about-hero .overlay-hero-image { object-position: center 42%; }
+
+@media (max-width: 600px) {
+  .about-hero .overlay-hero-image { object-position: center 35%; }
 }

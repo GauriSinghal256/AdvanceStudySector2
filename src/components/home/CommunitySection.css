@@ -20,3 +20,5 @@
 	.community-heading > p { margin-left: auto; margin-right: auto; }
 	.community-card { max-width: 560px; width: 100%; margin: 0 auto; }
 }
+
+.community-section { padding-bottom: 24px; }

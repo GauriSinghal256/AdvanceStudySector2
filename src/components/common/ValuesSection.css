@@ -9,3 +9,5 @@
 
 @media (max-width: 900px) { .values-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 460px) { .values-grid { grid-template-columns: 1fr; } .value-card { min-height: 210px; } }
+
+.values-section { padding-top: 24px; }
