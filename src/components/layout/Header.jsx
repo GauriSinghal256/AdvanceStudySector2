@@ -29,7 +29,7 @@ export function Header({ scrolled, menuOpen, onToggleMenu }) {
       <div className="header-actions">
         <a className="icon-pill" href={contactInfo.social.instagram} target="_blank" rel="noreferrer" aria-label="Follow us on Instagram"><InstagramIcon /></a>
         <a className="icon-pill" href={contactInfo.social.facebook} target="_blank" rel="noreferrer" aria-label="Follow us on Facebook"><FacebookIcon /></a>
-        <Link className="text-pill" to="/contact"><ChatIcon /><span className="pill-label">Chat with us</span></Link>
+        <a className="text-pill" href={contactInfo.whatsappHref} target="_blank" rel="noreferrer"><ChatIcon /><span className="pill-label">Chat with us</span></a>
         <a className="text-pill" href={contactInfo.phoneHref}><PhoneIcon /><span className="pill-label">Call now</span></a>
         <Link className="book-pill" to="/contact">Book a demo</Link>
       </div>

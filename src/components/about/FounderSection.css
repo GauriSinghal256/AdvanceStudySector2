@@ -190,6 +190,13 @@
   .founder-gallery { max-width: 100%; }
   .founder-gallery-card { max-height: 380px; border-width: 6px; border-radius: 14px; }
   .founder-gallery-card img { object-position: center 42%; }
+  .founder-info h3 { font-size: 28px; }
+  .founder-info { text-align: center; }
+  .founder-profile { text-align: center; }
+  .founder-more { margin-left: auto; margin-right: auto; }
+  .founder-info,
+  .founder-vision,
+  .founder-areas { width: 100%; }
   .founder-vision,
   .founder-areas { padding: 16px 16px; }
 }

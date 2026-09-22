@@ -16,7 +16,7 @@ nav a:hover, nav a.active, nav button:hover, nav button.active { color: var(--or
 .menu-toggle { display: none; background: none; border: 0; padding: 8px; }
 .menu-toggle span { display: block; background: #fff; width: 24px; height: 2px; margin: 5px; }
 .site-header.header-scrolled .menu-toggle span { background: var(--navy); }
-.site-header.header-scrolled .brand-large .brand-logo { height: 68px; }
+.site-header.header-scrolled .brand-large .brand-logo { height: 82px; }
 
 /* === utility action buttons === */
 .header-actions { display: flex; align-items: center; gap: 10px; margin-left: 18px; }

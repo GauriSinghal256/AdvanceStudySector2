@@ -10,6 +10,13 @@ export const toppers = [
   { name: 'Tanay', achievement: 'Student achievement', score: '95%', course: 'Advance Study Sector' },
   { name: 'Nikunj', achievement: 'Student achievement', score: '94%', course: 'Advance Study Sector' },
   { name: 'Aanvi', achievement: 'Student achievement', score: '88%', course: 'Advance Study Sector' },
+  { name: 'Samarth', achievement: 'Student achievement', score: '88%', course: 'Advance Study Sector' },
+  { name: 'Sanaya', achievement: 'Student achievement', score: '88%', course: 'Advance Study Sector' },
+  { name: 'Sameek', achievement: 'Student achievement', score: '80%', course: 'Advance Study Sector' },
+  { name: 'Sahaj', achievement: 'Student achievement', score: '80%', course: 'Advance Study Sector' },
+  { name: 'Satvik', achievement: 'Student achievement', score: '76%', course: 'Advance Study Sector' },
+  { name: 'Kanan', achievement: 'Student achievement', score: '75%', course: 'Advance Study Sector' },
+  { name: 'Ayush', achievement: 'Student achievement', score: '69%', course: 'Advance Study Sector' },
 ]
 
 export const instagramVideos = [

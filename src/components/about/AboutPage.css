@@ -1,7 +1,7 @@
 .about-page-shell { background: var(--cream); }
 
 .about-page-shell .overlay-hero {
-  min-height: min(58vh, 560px);
+  min-height: 670px;
 }
 .about-page-shell .overlay-hero-content {
   padding-top: 132px;
@@ -108,16 +108,34 @@
 .about-cta .button { margin: 0; }
 
 @media (max-width: 900px) {
-  .about-page-shell .overlay-hero { min-height: 420px; }
-  .about-page-shell .overlay-hero-content { padding-top: 108px; padding-bottom: 36px; }
-  .about-quote { padding: 36px 0 0; }
-  .about-cta-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .about-page-shell .overlay-hero { min-height: 680px; }
+  .about-page-shell .overlay-hero-content { text-align: center; }
+  .about-page-shell .overlay-hero-content { padding-top: 116px; padding-bottom: 42px; }
+  .about-page-shell .overlay-hero-intro { max-width: 460px; margin: 0 auto; padding-left: 0; border-left: 0; border-top: 2px solid rgba(255, 122, 61, .55); padding-top: 12px; font-size: 15px; line-height: 1.65; }
+  .about-quote { padding: 42px 0 0; }
+  .about-page-shell .founder-section,
+  .about-page-shell .timeline-section { padding-top: 44px; }
+  .about-page-shell .section-heading { margin-bottom: 26px; }
+  .about-cta-inner { flex-direction: column; align-items: center; gap: 16px; text-align: center; }
 }
 
 @media (max-width: 460px) {
-  .about-page-shell .overlay-hero { min-height: 380px; }
-  .about-page-shell .overlay-hero h1 { font-size: clamp(36px, 11vw, 48px); letter-spacing: -2px; }
-  .about-quote blockquote { font-size: 22px; }
+  .about-page-shell .section-wrap { padding-left: 24px; padding-right: 24px; }
+  .about-page-shell .overlay-hero { min-height: 650px; }
+  .about-page-shell .overlay-hero-content { padding-top: 104px; padding-bottom: 34px; }
+  .about-page-shell .overlay-hero h1 { max-width: 310px; margin: 14px auto 18px; font-size: clamp(36px, 11vw, 48px); letter-spacing: -2px; line-height: 1; }
+  .about-page-shell .overlay-hero-intro { max-width: 320px; padding-left: 0; }
+  .about-quote { padding-top: 34px; }
+  .about-quote blockquote { font-size: 21px; line-height: 1.35; }
+  .about-page-shell .founder-section,
+  .about-page-shell .timeline-section { padding-top: 38px; }
+  .about-page-shell .section-heading { font-size: 34px; line-height: 1.08; letter-spacing: -1.8px; }
+  .about-page-shell .founder-heading,
+  .about-page-shell .founder-info,
+  .about-page-shell .values-section .section-kicker,
+  .about-page-shell .values-section .section-heading,
+  .about-page-shell .timeline-section > .section-heading,
+  .about-page-shell .timeline-section > .section-kicker { text-align: center; }
   .about-quote cite { flex-wrap: wrap; justify-content: center; line-height: 1.5; }
   .about-page-shell .values-grid { gap: 14px; }
   .about-page-shell .value-card { min-height: 0; padding: 22px 18px; }

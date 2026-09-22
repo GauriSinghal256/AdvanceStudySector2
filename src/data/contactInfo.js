@@ -1,6 +1,7 @@
 export const contactInfo = {
   phone: '+91 99965 70747',
   phoneHref: 'tel:+919996570747',
+  whatsappHref: 'https://wa.me/919996570747',
   email: 'advanceskillsector@gmail.com',
   emailHref: 'mailto:advanceskillsector@gmail.com',
   addressLines: ['50 Feet Rd, near Balaji Mandir', 'Hargobind Nagar, Kurukshetra, Haryana 136118'],

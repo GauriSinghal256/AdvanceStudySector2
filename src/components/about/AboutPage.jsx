@@ -13,7 +13,7 @@ export function AboutPage() {
       label="06 / Our story"
       title={<>Learning that<br /><em>leaves a mark.</em></>}
       intro="Advance Study Sector is a place for focused learning, honest mentorship and the kind of progress you can carry into the world."
-      image="https://images.pexels.com/photos/8197553/pexels-photo-8197553.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400"
+      image="/aboutus/focus_deeply.jpg"
     />
 
     <section className="about-quote section-wrap">

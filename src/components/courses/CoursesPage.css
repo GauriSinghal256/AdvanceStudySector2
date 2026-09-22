@@ -9,9 +9,9 @@
 .course-card-img::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--orange), var(--orange-light)); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(0.16,1,0.3,1); z-index: 2; }
 .course-card-img:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(13, 47, 74, 0.18); border-color: rgba(239,91,23,.28); }
 .course-card-img:hover::before { transform: scaleX(1); }
-.course-card-img-wrap { position: relative; height: 190px; overflow: hidden; }
+.course-card-img-wrap { position: relative; height: 190px; overflow: hidden; aspect-ratio: 16 / 10; }
 .course-card-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,29,48,.32) 0%, transparent 40%); pointer-events: none; }
-.course-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(0.16,1,0.3,1); }
+.course-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; transition: transform .7s cubic-bezier(0.16,1,0.3,1); }
 .course-card-img:hover .course-card-img-wrap img { transform: scale(1.08); }
 .course-card-img-wrap .course-number { position: absolute; z-index: 1; top: 14px; left: 14px; width: 38px; height: 38px; display: grid; place-items: center; background: rgba(8, 29, 48, 0.65); backdrop-filter: blur(6px); color: #fff; padding: 0; border: 1px solid rgba(255, 255, 255, .45); border-radius: 50%; font-size: 11px; letter-spacing: 1px; }
 .course-card-img-body { padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
