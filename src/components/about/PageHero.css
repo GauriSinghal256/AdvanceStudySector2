@@ -6,5 +6,12 @@
 .about-hero .overlay-hero-image { object-position: center 45%; }
 
 @media (max-width: 600px) {
-  .about-hero .overlay-hero-image { object-position: center 45%; }
+  .about-hero > .overlay-hero {
+    min-height: 68vh;
+  }
+
+  .about-hero .overlay-hero-image {
+    object-position: center center;
+    transform: scale(1.08);
+  }
 }
