@@ -23,7 +23,6 @@ export function AuthProvider({ children }) {
   }
 
   const login = async (email, password) => persist(await api.login({ email, password }))
-  const register = async (name, email, password) => persist(await api.register({ name, email, password }))
   const logout = () => {
     setUser(null)
     setToken(null)
@@ -32,7 +31,7 @@ export function AuthProvider({ children }) {
 
   const isAdmin = user?.role === 'admin'
 
-  return <AuthContext.Provider value={{ user, token, loading, login, register, logout, isAdmin }}>
+  return <AuthContext.Provider value={{ user, token, loading, login, logout, isAdmin }}>
     {children}
   </AuthContext.Provider>
 }

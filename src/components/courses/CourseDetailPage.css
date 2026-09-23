@@ -1,7 +1,7 @@
 .course-detail-page { padding-top: 120px; }
 .course-detail-page > .overlay-hero { margin: 0 -48px 70px; }
 .course-detail-page > .detail-layout, .course-detail-page > .detail-cta { margin-left: 0; margin-right: 0; }
-.course-overlay-hero .overlay-hero-actions { display: flex; align-items: center; gap: 24px; }
+.course-overlay-hero .overlay-hero-actions { display: flex; align-items: center; justify-content: center; gap: 24px; }
 .course-overlay-hero .back-button { color: rgba(255, 255, 255, .78); margin: 0; }
 .course-overlay-hero .back-button:hover { color: #fff; }
 

@@ -29,11 +29,97 @@
 .course-footer .text-button:hover, .course-footer .text-button:focus-visible { color: #000; }
 
 /* === FAQ === */
-.faq-section { margin-top: 90px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: clamp(32px, 5vw, 56px); box-shadow: 0 16px 40px rgba(13,47,74,0.06); }
-.faq-list { margin-top: 30px; max-width: 760px; }
+.faq-section {
+  margin-top: 100px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: clamp(36px, 5vw, 64px);
+  box-shadow: 0 20px 50px rgba(13, 47, 74, 0.06);
+  display: grid;
+  grid-template-columns: 1fr 1.45fr;
+  gap: clamp(36px, 5vw, 60px);
+  align-items: start;
+}
+
+.faq-header-side {
+  position: sticky;
+  top: 110px;
+}
+
+.faq-header-side .section-kicker {
+  margin-bottom: 10px;
+}
+
+.faq-header-side .section-heading {
+  margin: 0 0 16px;
+  line-height: 1.1;
+}
+
+.faq-header-desc {
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.75;
+  margin: 0 0 24px;
+}
+
+.faq-help-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px 22px;
+  margin-top: 16px;
+}
+
+.faq-help-badge {
+  display: inline-block;
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.faq-help-card h4 {
+  color: var(--navy);
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.faq-help-card p {
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 0 0 18px;
+}
+
+.faq-help-card .button {
+  margin: 0;
+  width: 100%;
+  justify-content: center;
+}
+
+.faq-list {
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .faq-section {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 32px 24px;
+  }
+  .faq-header-side {
+    position: static;
+  }
+}
 
 @media (max-width: 900px) {
   .courses-page > .overlay-hero { width: 100vw; margin-left: calc(50% - 50vw); margin-right: 0; }
   .course-grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 640px) { .course-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 640px) {
+  .course-grid { grid-template-columns: 1fr; }
+}

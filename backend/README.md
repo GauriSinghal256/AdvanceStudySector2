@@ -27,7 +27,6 @@ There is one admin account, configured with `ADMIN_EMAIL` and `ADMIN_PASSWORD` i
 | POST | `/` | Admin only | `{ title, content, coverImage? }` |
 | PUT | `/:id` | Admin only | `{ title?, content?, coverImage? }` |
 | DELETE | `/:id` | Admin only | — |
-| PUT | `/:id/like` | Logged-in user | — (toggles like) |
 
 ### Uploads — `/api/uploads`
 | Method | Route | Access | Body |

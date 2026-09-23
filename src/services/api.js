@@ -17,7 +17,6 @@ async function request(path, { method = 'GET', body, token } = {}) {
 }
 
 export const api = {
-  register: (payload) => request('/auth/register', { method: 'POST', body: payload }),
   login: (payload) => request('/auth/login', { method: 'POST', body: payload }),
   me: (token) => request('/auth/me', { token }),
 
@@ -26,7 +25,6 @@ export const api = {
   createBlog: (payload, token) => request('/blogs', { method: 'POST', body: payload, token }),
   updateBlog: (id, payload, token) => request(`/blogs/${id}`, { method: 'PUT', body: payload, token }),
   deleteBlog: (id, token) => request(`/blogs/${id}`, { method: 'DELETE', token }),
-  toggleLike: (id, token) => request(`/blogs/${id}/like`, { method: 'PUT', token }),
   uploadImage: (file, token) => {
     const body = new FormData()
     body.append('image', file)

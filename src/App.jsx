@@ -14,8 +14,10 @@ import { AuthProvider } from './context/AuthContext'
 import { BlogListPage } from './components/blog/BlogListPage'
 import { BlogDetailPage } from './components/blog/BlogDetailPage'
 import { AdminBlogEditor } from './components/blog/AdminBlogEditor'
+import { AdminPanel } from './components/blog/AdminPanel'
 import { LoginPage } from './components/blog/LoginPage'
 import { RequireAdmin } from './components/blog/RouteGuards'
+import { Navigate } from 'react-router-dom'
 
 function App() {
   const [showTop, setShowTop] = useState(false)
@@ -51,9 +53,10 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
 
         <Route path="/blog" element={<BlogListPage />} />
-        <Route path="/blog/new" element={<RequireAdmin><AdminBlogEditor /></RequireAdmin>} />
-        <Route path="/blog/edit/:id" element={<RequireAdmin><AdminBlogEditor /></RequireAdmin>} />
         <Route path="/blog/:id" element={<BlogDetailPage />} />
+        <Route path="/blog/new" element={<Navigate to="/admin" replace />} />
+        <Route path="/blog/edit/:id" element={<RequireAdmin><AdminBlogEditor /></RequireAdmin>} />
+        <Route path="/admin" element={<RequireAdmin><AdminPanel /></RequireAdmin>} />
         <Route path="/login" element={<LoginPage />} />
 
         <Route path="*" element={<HomePage />} />

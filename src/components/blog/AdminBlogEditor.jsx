@@ -9,7 +9,7 @@ export function AdminBlogEditor() {
   const isEdit = Boolean(id)
   const { token } = useAuth()
   const navigate = useNavigate()
-  const [form, setForm] = useState({ title: '', content: '', coverImage: '' })
+  const [form, setForm] = useState({ title: '', category: 'Academics', content: '', coverImage: '' })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(isEdit)
   const [saving, setSaving] = useState(false)
@@ -18,7 +18,12 @@ export function AdminBlogEditor() {
   useEffect(() => {
     if (!isEdit) return
     api.getBlog(id)
-      .then((blog) => setForm({ title: blog.title, content: blog.content, coverImage: blog.coverImage || '' }))
+      .then((blog) => setForm({
+        title: blog.title,
+        category: blog.category || 'Academics',
+        content: blog.content,
+        coverImage: blog.coverImage || ''
+      }))
       .catch(() => setError('Could not load this blog.'))
       .finally(() => setLoading(false))
   }, [id, isEdit])
@@ -31,7 +36,7 @@ export function AdminBlogEditor() {
       const saved = isEdit
         ? await api.updateBlog(id, form, token)
         : await api.createBlog(form, token)
-      navigate(`/blog/${saved._id}`)
+      navigate('/admin')
     } catch (err) {
       setError(err.message)
     } finally {
@@ -62,6 +67,9 @@ export function AdminBlogEditor() {
     <form className="auth-form" onSubmit={handleSubmit}>
       <label>Title
         <input type="text" required value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
+      </label>
+      <label>Category
+        <input type="text" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} placeholder="e.g. Academics, Exam Tips" />
       </label>
       <label>Cover image (optional)
         <input type="file" accept="image/*" onChange={handleImageChange} disabled={uploading} />

@@ -7,29 +7,32 @@ const awards = [
     image: '/achievements/achievement1.jpg',
     eyebrow: 'Achievement 01',
     alt: 'Award being presented at a recognition ceremony',
+    position: 'center 30%',
   },
   {
     image: '/achievements/achievement2.jpg',
     eyebrow: 'Achievement 02',
     alt: 'Founder seated at the Advance Study Sector office',
+    position: 'center center',
   },
   {
     image: '/achievements/achievement4.png',
     eyebrow: 'Achievement 03',
     alt: 'Recognition and achievement at Advance Study Sector',
+    position: 'top center',
   },
   {
     image: '/achievements/achievement6.jpg',
     eyebrow: 'Achievement 04',
     alt: 'Achievement recognition at Advance Study Sector',
+    position: 'top center',
   },
   {
     image: '/achievements/result4.jpg',
     eyebrow: 'Results 01',
     alt: 'Student achievement results at Advance Study Sector',
+    position: 'top center',
   },
-  // To add more achievements later, just add another { image, eyebrow, alt }
-  // object here — the carousel, dots and thumbnails update automatically.
 ]
 
 export function AwardsSection() {
@@ -43,41 +46,58 @@ export function AwardsSection() {
     return () => window.clearInterval(timer)
   }, [])
 
-  return <section className="awards-section">
-    <div className="section-wrap">
-      <div className="awards-heading">
-        <Reveal><div className="section-kicker">Achievements & awards</div></Reveal>
-        <Reveal delay={80}><h2 className="section-heading">Milestones worth<br /><em>remembering.</em></h2></Reveal>
-        <Reveal delay={140}><p>Every award reflects a culture of showing up, doing the work and helping students move forward with confidence.</p></Reveal>
-      </div>
+  return (
+    <section className="awards-section">
+      <div className="section-wrap">
+        <div className="awards-heading">
+          <Reveal><div className="section-kicker">Achievements & awards</div></Reveal>
+          <Reveal delay={80}>
+            <h2 className="section-heading">
+              Milestones worth<br /><em>remembering.</em>
+            </h2>
+          </Reveal>
+          <Reveal delay={140}>
+            <p>
+              Every award reflects a culture of showing up, doing the work and helping students move forward with confidence.
+            </p>
+          </Reveal>
+        </div>
 
-      <Reveal delay={180}>
-        <div className="awards-carousel">
-          <div className="award-stage">
-            <div className="award-stage-frame">
-              {awards.map((award, i) => <img
-                key={award.image}
-                src={award.image}
-                alt={award.alt}
-                className={`award-slide ${i === index ? 'active' : ''}`}
-                aria-hidden={i !== index}
-              />)}
+        <Reveal delay={180}>
+          <div className="awards-carousel">
+            <div className="award-stage">
+              <div className="award-stage-frame">
+                {awards.map((award, i) => (
+                  <img
+                    key={award.image}
+                    src={award.image}
+                    alt={award.alt}
+                    className={`award-slide ${i === index ? 'active' : ''}`}
+                    style={{ objectPosition: award.position || 'top center' }}
+                    aria-hidden={i !== index}
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
 
-      {awards.length > 1 && <div className="award-thumbs">
-        {awards.map((award, i) => <button
-          type="button"
-          key={award.image}
-          className={`award-thumb ${i === index ? 'active' : ''}`}
-          onClick={() => setIndex(i)}
-          aria-label={`Show ${award.eyebrow}`}
-        >
-          <img src={award.image} alt="" />
-        </button>)}
-      </div>}
-    </div>
-  </section>
+        {awards.length > 1 && (
+          <div className="award-thumbs">
+            {awards.map((award, i) => (
+              <button
+                type="button"
+                key={award.image}
+                className={`award-thumb ${i === index ? 'active' : ''}`}
+                onClick={() => setIndex(i)}
+                aria-label={`Show photo ${i + 1}`}
+              >
+                <img src={award.image} alt="" />
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  )
 }

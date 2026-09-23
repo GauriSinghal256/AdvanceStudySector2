@@ -8,30 +8,65 @@ const generateToken = (id) =>
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
-    const adminPassword = process.env.ADMIN_PASSWORD;
 
     if (!email || !password) {
       return res.status(400).json({ message: "Email and password are required" });
     }
 
-    if (!adminEmail || !adminPassword) {
-      return res.status(500).json({ message: "Admin credentials are not configured" });
+    const normalizedEmail = email.trim().toLowerCase();
+    const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
+    const adminPassword = process.env.ADMIN_PASSWORD;
+
+    // Direct login via configured credentials in .env
+    if (adminEmail && normalizedEmail === adminEmail && adminPassword && password === adminPassword) {
+      let user = await User.findOne({ email: adminEmail });
+      if (!user) {
+        user = new User({
+          name: process.env.ADMIN_NAME || "Admin",
+          email: adminEmail,
+          password: adminPassword,
+          role: "admin",
+        });
+        await user.save();
+      } else {
+        let changed = false;
+        if (user.role !== "admin") {
+          user.role = "admin";
+          changed = true;
+        }
+        if (process.env.ADMIN_NAME && user.name !== process.env.ADMIN_NAME) {
+          user.name = process.env.ADMIN_NAME;
+          changed = true;
+        }
+        const matchesPwd = await user.comparePassword(adminPassword);
+        if (!matchesPwd) {
+          user.password = adminPassword;
+          changed = true;
+        }
+        if (changed) {
+          await user.save();
+        }
+      }
+
+      return res.json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        token: generateToken(user._id),
+      });
     }
 
-    if (email.trim().toLowerCase() !== adminEmail || password !== adminPassword) {
+    // Check existing database users
+    const user = await User.findOne({ email: normalizedEmail });
+    if (!user) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
-    let user = await User.findOne({ email: adminEmail });
-    if (!user) {
-      user = new User({ name: process.env.ADMIN_NAME || "Admin", email: adminEmail, password: adminPassword, role: "admin" });
-    } else {
-      user.name = process.env.ADMIN_NAME || user.name;
-      user.password = adminPassword;
-      user.role = "admin";
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid email or password" });
     }
-    await user.save();
 
     res.json({
       _id: user._id,
@@ -41,7 +76,7 @@ const login = async (req, res) => {
       token: generateToken(user._id),
     });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: err.message || "Failed to log in" });
   }
 };
 
