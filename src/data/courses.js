@@ -68,7 +68,7 @@ export const courses = [
     tagline: 'Focused coaching for undergraduate and postgraduate commerce degrees.',
     detail: 'Structured coaching for BBA, MBA, B.Com and M.Com students, covering core papers with practical examples and exam-focused practice.',
     icon: '04',
-    image: '/cources/graduation2.jpeg',
+    image: '/cources/graduation2.png',
     duration: '6–12 months',
     level: 'Undergraduate & Postgraduate',
     seats: '8 students per batch',

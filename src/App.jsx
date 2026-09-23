@@ -10,6 +10,12 @@ import { CoursesPage } from './components/courses/CoursesPage'
 import { CourseDetailPage } from './components/courses/CourseDetailPage'
 import { ContactPage } from './components/contact/ContactPage'
 import { TestimonialsResultsPage } from './components/results/TestimonialsResultsPage'
+import { AuthProvider } from './context/AuthContext'
+import { BlogListPage } from './components/blog/BlogListPage'
+import { BlogDetailPage } from './components/blog/BlogDetailPage'
+import { AdminBlogEditor } from './components/blog/AdminBlogEditor'
+import { LoginPage } from './components/blog/LoginPage'
+import { RequireAdmin } from './components/blog/RouteGuards'
 
 function App() {
   const [showTop, setShowTop] = useState(false)
@@ -31,7 +37,7 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [location.pathname])
 
-  return <div className="site-shell">
+  return <AuthProvider><div className="site-shell">
     <Preloader />
     <Header scrolled={scrolled} menuOpen={menuOpen} onToggleMenu={() => setMenuOpen(!menuOpen)} />
 
@@ -43,13 +49,20 @@ function App() {
         <Route path="/courses/:slug" element={<CourseDetailPage />} />
         <Route path="/results" element={<TestimonialsResultsPage />} />
         <Route path="/contact" element={<ContactPage />} />
+
+        <Route path="/blog" element={<BlogListPage />} />
+        <Route path="/blog/new" element={<RequireAdmin><AdminBlogEditor /></RequireAdmin>} />
+        <Route path="/blog/edit/:id" element={<RequireAdmin><AdminBlogEditor /></RequireAdmin>} />
+        <Route path="/blog/:id" element={<BlogDetailPage />} />
+        <Route path="/login" element={<LoginPage />} />
+
         <Route path="*" element={<HomePage />} />
       </Routes>
     </main>
 
     <Footer />
     <ScrollTopButton visible={showTop} />
-  </div>
+  </div></AuthProvider>
 }
 
 export default App

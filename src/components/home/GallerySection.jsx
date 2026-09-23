@@ -7,7 +7,7 @@ export function GallerySection() {
     <div className="section-wrap">
       <Reveal><div className="gallery-heading">
         <div>
-          <p className="eyebrow"><span /> 03 / Inside Advance</p>
+          <p className="eyebrow">03 / Inside Advance</p>
           <h2>See learning<br /><em>come alive.</em></h2>
         </div>
         <p>A glimpse into the energy, care and curiosity that make our institute feel different.</p>

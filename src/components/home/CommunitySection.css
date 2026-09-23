@@ -16,6 +16,7 @@
 @media (max-width: 460px) { .community-card img { height: 230px; } }
 @media (max-width: 900px) {
 	.community-section { padding-bottom: 54px; }
+	.community-section .section-kicker { text-align: center; }
 	.community-heading { text-align: center; }
 	.community-heading > p { margin-left: auto; margin-right: auto; }
 	.community-card { max-width: 560px; width: 100%; margin: 0 auto; }

@@ -34,7 +34,7 @@
   .award-stage-frame { height: 480px; }
 }
 @media (max-width: 640px) {
-  .awards-section { padding: 0 0 90px; }
+  .awards-section { padding: 12px 0 90px; }
   .awards-heading { display: block; }
   .awards-heading p { margin: 22px 0 0; }
   .awards-carousel { gap: 8px; }

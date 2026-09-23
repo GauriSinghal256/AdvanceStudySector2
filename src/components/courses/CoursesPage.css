@@ -1,6 +1,6 @@
 .courses-page .page-heading { margin-bottom: 48px; }
 .courses-page > .overlay-hero { width: 100vw; margin: 0 0 70px calc(50% - 50vw); }
-.courses-page > .overlay-hero .overlay-hero-image { object-fit: contain; background: var(--navy-deep); }
+.courses-page > .overlay-hero .overlay-hero-image { object-fit: cover; background: var(--navy-deep); }
 
 /* === COURSE GRID (image cards) === */
 .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }

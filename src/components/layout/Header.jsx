@@ -3,16 +3,20 @@ import { NavLink, Link } from 'react-router-dom'
 import { Brand } from '../common/Brand'
 import { contactInfo } from '../../data/contactInfo'
 import { InstagramIcon, FacebookIcon, ChatIcon, PhoneIcon } from '../common/UtilityIcons'
+import { useAuth } from '../../context/AuthContext'
 
 const navItems = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About us' },
   { to: '/courses', label: 'Courses' },
   { to: '/results', label: 'Results' },
+  { to: '/blog', label: 'Blog' },
   { to: '/contact', label: 'Contact us' },
 ]
 
 export function Header({ scrolled, menuOpen, onToggleMenu }) {
+  const { user, logout } = useAuth()
+
   return <header className={`site-header ${scrolled ? 'header-scrolled' : ''}`}>
     <div className="header-inner">
       <Link className="brand-button" to="/" aria-label="Go to home"><Brand large /></Link>
@@ -23,7 +27,7 @@ export function Header({ scrolled, menuOpen, onToggleMenu }) {
           <a href={contactInfo.social.instagram} target="_blank" rel="noreferrer" aria-label="Follow us on Instagram"><InstagramIcon /> Instagram</a>
           <a href={contactInfo.social.facebook} target="_blank" rel="noreferrer" aria-label="Follow us on Facebook"><FacebookIcon /> Facebook</a>
           <a href={contactInfo.phoneHref}><PhoneIcon /> Call now</a>
-          <Link className="button button-primary" to="/contact">Book a demo</Link>
+          {user && <button className="button button-primary" onClick={logout}>Log out</button>}
         </div>
       </nav>
       <div className="header-actions">
@@ -31,7 +35,7 @@ export function Header({ scrolled, menuOpen, onToggleMenu }) {
         <a className="icon-pill" href={contactInfo.social.facebook} target="_blank" rel="noreferrer" aria-label="Follow us on Facebook"><FacebookIcon /></a>
         <a className="text-pill" href={contactInfo.whatsappHref} target="_blank" rel="noreferrer"><ChatIcon /><span className="pill-label">Chat with us</span></a>
         <a className="text-pill" href={contactInfo.phoneHref}><PhoneIcon /><span className="pill-label">Call now</span></a>
-        <Link className="book-pill" to="/contact">Book a demo</Link>
+        {user && <button className="book-pill" onClick={logout}>Log out</button>}
       </div>
     </div>
   </header>
