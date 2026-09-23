@@ -30,6 +30,8 @@
 
 @media (max-width: 720px) {
   .testimonials-section { padding-top: 54px; }
+  .testimonials-section .section-kicker,
+  .testimonials-section .section-heading { text-align: center; }
   .testimonials-viewport { max-width: 520px; }
   .testimonials-grid { --testimonial-step: calc(100vw - 40px + 20px); gap: 20px; }
   .testimonial-card { flex-basis: calc(100vw - 40px); min-height: 210px; padding: 24px 22px; }

@@ -182,13 +182,13 @@
   .founder-grid,
   .founder-lower { grid-template-columns: 1fr; }
   .founder-gallery { max-width: 360px; margin: 0 auto; }
-  .founder-gallery-card { max-height: 400px; }
+  .founder-gallery-card { width: 100%; max-height: 400px; margin-inline: auto; }
   .founder-gallery-card img { object-position: center 38%; }
 }
 
 @media (max-width: 460px) {
   .founder-gallery { max-width: 100%; }
-  .founder-gallery-card { max-height: 380px; border-width: 6px; border-radius: 14px; }
+  .founder-gallery-card { width: min(100%, 360px); max-height: 380px; border-width: 6px; border-radius: 14px; }
   .founder-gallery-card img { object-position: center center; }
   .founder-info h3 { font-size: 28px; }
   .founder-info { text-align: center; }

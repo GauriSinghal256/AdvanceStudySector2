@@ -46,7 +46,7 @@ nav a:hover, nav a.active, nav button:hover, nav button.active { color: var(--or
   .nav-utility-mobile a { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-weight: 600; padding: 4px 0; }
   .nav-utility-mobile a:hover { color: var(--orange); }
   .nav-utility-mobile .button { justify-content: center; margin-top: 6px; }
-  .header-inner { height: 52px; padding: 0 24px; }
+  .header-inner { height: 57px; padding: 0 24px; }
   .menu-toggle { display: block; }
   nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; padding: 20px 24px 28px; flex-direction: column; align-items: stretch; gap: 10px; box-shadow: 0 18px 30px rgba(13, 47, 74, .12); }
   nav.nav-open { display: flex; }

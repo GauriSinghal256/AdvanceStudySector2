@@ -4,5 +4,5 @@
 .brand-compact .brand-logo { height: 38px; }
 
 @media (max-width: 800px) {
-	.brand-large .brand-logo { height: 76px; max-width: 240px; }
+	.brand-large .brand-logo { height: 90px; max-width: 240px; }
 }

@@ -1,0 +1,20 @@
+name: Keep Render service awake
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping-render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Render service
+        env:
+          RENDER_URL: ${{ secrets.RENDER_URL }}
+        run: |
+          if [ -z "$RENDER_URL" ]; then
+            echo "RENDER_URL secret is not configured"
+            exit 1
+          fi
+          curl --fail --silent --show-error --max-time 30 "$RENDER_URL"
