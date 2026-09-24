@@ -67,6 +67,7 @@ export function Footer() {
                 <li><Link to="/results">Results & Awards</Link></li>
                 <li><Link to="/blog">Blog & Updates</Link></li>
                 <li><Link to="/contact">Contact Us</Link></li>
+                <li><Link to="/login">Admin Login</Link></li>
               </ul>
             </div>
 

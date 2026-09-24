@@ -23,16 +23,22 @@ function App() {
   const [showTop, setShowTop] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
   const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
       setShowTop(window.scrollY > 400)
       setScrolled(window.scrollY > 60)
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight
+      if (totalScroll > 0) {
+        setScrollProgress(Math.min(100, Math.max(0, (window.scrollY / totalScroll) * 100)))
+      }
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [location.pathname])
 
   useEffect(() => {
     setMenuOpen(false)
@@ -41,9 +47,14 @@ function App() {
 
   return <AuthProvider><div className="site-shell">
     <Preloader />
+    <div
+      className="scroll-progress-line"
+      style={{ transform: `scaleX(${scrollProgress / 100})` }}
+      aria-hidden="true"
+    />
     <Header scrolled={scrolled} menuOpen={menuOpen} onToggleMenu={() => setMenuOpen(!menuOpen)} />
 
-    <main>
+    <main key={location.pathname} className="main-page-transition">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />

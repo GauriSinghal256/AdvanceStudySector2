@@ -7,7 +7,29 @@
 .value-card h3 { color: #fff; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; margin-bottom: 10px; }
 .value-card p { color: #c5d5dc; font-size: 13px; line-height: 1.7; margin: 0; }
 
-@media (max-width: 900px) { .values-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 460px) { .values-grid { grid-template-columns: 1fr; } .value-card { min-height: 210px; } }
+@media (max-width: 900px) {
+  .values-section .section-kicker,
+  .values-section .section-heading {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .values-section .section-heading {
+    font-size: clamp(30px, 8.5vw, 40px);
+    letter-spacing: -1.5px;
+    margin-top: 10px;
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 460px) {
+  .values-grid { grid-template-columns: 1fr; }
+  .value-card { min-height: 210px; }
+}
 
 .values-section { padding-top: 24px; padding-bottom: 36px; }
+

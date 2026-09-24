@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { api } from '../../services/api'
 import { Reveal } from '../common/Reveal'
 import { OverlayHero } from '../common/OverlayHero'
+import { useAuth } from '../../context/AuthContext'
 import './blog.css'
 
 function calculateReadTime(text) {
@@ -32,6 +33,7 @@ function excerpt(text, len = 110) {
 }
 
 export function BlogListPage() {
+  const { isAdmin } = useAuth()
   const [blogs, setBlogs] = useState([])
   const [status, setStatus] = useState('loading')
   const [searchQuery, setSearchQuery] = useState('')
@@ -82,33 +84,38 @@ export function BlogListPage() {
         label="Advance Study Sector"
         title={<>Our <em>Blog.</em></>}
         intro="Insights, study guidance, exam strategies, and educational updates from our faculty."
-        image="/blog.jpg"
+        video="https://player.cloudinary.com/embed/?cloud_name=wdpnzbti&public_id=Adobe_Express_-_C4180.MP4"
         imageAlt="Advance Study Sector Campus and Students"
       />
 
       {/* Filter and Search Bar */}
       <div className="blog-toolbar-container">
-        <div className="blog-search-box">
-          <svg className="blog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input
-            type="text"
-            placeholder="Search articles, topics or keywords…"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="blog-search-input"
-          />
-          {searchQuery && (
-            <button
-              className="blog-search-clear"
-              onClick={() => setSearchQuery('')}
-              aria-label="Clear search"
-            >
-              ✕
-            </button>
-          )}
+        <div className="blog-toolbar-top">
+          <div className="blog-search-box">
+            <svg className="blog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="text"
+              placeholder="Search articles, topics or keywords…"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="blog-search-input"
+            />
+            {searchQuery && (
+              <button
+                className="blog-search-clear"
+                onClick={() => setSearchQuery('')}
+                aria-label="Clear search"
+              >
+                ✕
+              </button>
+            )}
+          </div>
+          <Link to={isAdmin ? "/admin" : "/login"} className="blog-admin-shortcut-btn">
+            <span>{isAdmin ? '⚙️ Admin Dashboard' : '🔒 Admin Login'}</span>
+          </Link>
         </div>
 
         {/* Category Pills */}

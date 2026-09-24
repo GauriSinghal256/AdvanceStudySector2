@@ -481,6 +481,17 @@ export function AdminPanel() {
                 onChange={(e) => setBlogSearch(e.target.value)}
                 className="manage-search-input"
               />
+              <button
+                type="button"
+                className="button button-primary"
+                style={{ padding: '10px 18px', fontSize: '13.5px', whiteSpace: 'nowrap' }}
+                onClick={() => {
+                  resetForm()
+                  setActiveTab('create')
+                }}
+              >
+                + Add Blog
+              </button>
             </div>
           </div>
 

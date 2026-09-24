@@ -2,7 +2,7 @@
    Course detail, Results & Testimonials, Contact, Blog). */
 .overlay-hero {
   position: relative;
-  min-height: 72vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,8 +82,8 @@
   width: 100%;
   max-width: 980px;
   margin: 0 auto;
-  padding-top: 165px;
-  padding-bottom: 95px;
+  padding-top: 185px;
+  padding-bottom: 115px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,6 +98,10 @@
   justify-content: center;
   letter-spacing: 1.8px;
   font-size: 12px;
+}
+
+.overlay-hero .eyebrow span {
+  display: none !important;
 }
 
 .overlay-hero h1 {
@@ -137,11 +141,11 @@
 
 @media (max-width: 900px) {
   .overlay-hero {
-    min-height: 66vh;
+    min-height: 74vh;
   }
   .overlay-hero-content {
-    padding-top: 140px;
-    padding-bottom: 75px;
+    padding-top: 155px;
+    padding-bottom: 85px;
   }
 }
 
@@ -156,11 +160,11 @@
 
 @media (max-width: 600px) {
   .overlay-hero {
-    min-height: 60vh;
+    min-height: 68vh;
   }
   .overlay-hero-content {
-    padding-top: 125px;
-    padding-bottom: 60px;
+    padding-top: 140px;
+    padding-bottom: 75px;
   }
   .overlay-hero h1 {
     font-size: clamp(34px, 9.2vw, 48px);
@@ -178,3 +182,5 @@
     width: 177.78%;
   }
 }
+
+

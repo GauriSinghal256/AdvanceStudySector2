@@ -7,9 +7,8 @@ export function PageHero({ label, title, intro, image, video, poster }) {
       label={label}
       title={title}
       intro={intro}
-      image={image}
+      image={video ? undefined : image}
       video={video}
-      poster={poster}
       imageAlt="Students learning together"
     />
   </div>

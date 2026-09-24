@@ -7,7 +7,10 @@ export function LoginPage() {
   const { user, isAdmin, login } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
-  const [form, setForm] = useState({ email: '', password: '' })
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+  })
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -24,12 +27,9 @@ export function LoginPage() {
     setError('')
     setLoading(true)
     try {
-      const data = await login(form.email, form.password)
-      if (data?.role === 'admin' || isAdmin) {
-        navigate('/admin')
-      } else {
-        navigate(location.state?.from || '/admin')
-      }
+      await login(form.email, form.password)
+      const destination = location.state?.from || '/admin'
+      navigate(destination, { replace: true })
     } catch (err) {
       setError(err.message || 'Invalid email or password.')
     } finally {
@@ -48,7 +48,7 @@ export function LoginPage() {
             </svg>
           </div>
           <h2>Admin <em>Portal.</em></h2>
-          <p>Sign in to create, update, or manage blogs for Advance Study Sector.</p>
+          <p>Sign in with your authorized admin credentials to manage blogs.</p>
         </div>
 
         {error && (
@@ -71,7 +71,7 @@ export function LoginPage() {
                 type="email"
                 required
                 autoComplete="email"
-                placeholder="advanceskillsector@gmail.com"
+                placeholder="admin@example.com"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
               />

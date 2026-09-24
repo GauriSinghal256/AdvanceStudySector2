@@ -1,6 +1,17 @@
 .founder-section { padding: 56px 0 8px; }
-.founder-heading { max-width: 720px; }
-.founder-heading .section-heading { margin-bottom: 32px; }
+.founder-heading {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.founder-heading .section-kicker {
+  text-align: center;
+}
+.founder-heading .section-heading {
+  margin-top: 12px;
+  margin-bottom: 36px;
+  text-align: center;
+}
 .founder-grid {
   display: grid;
   grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);

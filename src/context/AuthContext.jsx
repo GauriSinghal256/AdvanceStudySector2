@@ -20,9 +20,13 @@ export function AuthProvider({ children }) {
     setUser(data)
     setToken(data.token)
     localStorage.setItem('blog_token', data.token)
+    return data
   }
 
-  const login = async (email, password) => persist(await api.login({ email, password }))
+  const login = async (email, password) => {
+    const data = await api.login({ email, password })
+    return persist(data)
+  }
   const logout = () => {
     setUser(null)
     setToken(null)

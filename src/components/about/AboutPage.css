@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding: 48px 0 8px;
+  padding: 36px 0 8px;
   text-align: center;
 }
 .about-quote-mark {
@@ -45,33 +45,47 @@
 
 .about-page-shell .founder-section,
 .about-page-shell .timeline-section {
-  padding: 56px 0 8px;
+  padding: 40px 0 8px;
 }
 .about-page-shell .values-section {
-  padding: 56px 0 48px;
+  padding: 40px 0 34px;
   background: transparent;
 }
 .about-page-shell .section-heading {
-  margin: 10px 0 32px;
+  margin: 10px 0 28px;
 }
+
+/* Values cards styled in blue as requested */
 .about-page-shell .value-card {
-  padding: 26px 22px;
+  background: var(--navy-deep);
+  border-radius: 16px;
+  padding: 30px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 34px rgba(8, 29, 48, 0.18);
   transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .35s ease, border-color .35s ease;
 }
 .about-page-shell .value-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 42px rgba(8, 29, 48, 0.3);
+  border-color: rgba(239, 91, 23, 0.4);
+}
+.about-page-shell .value-card h3 {
+  color: #fff;
+}
+.about-page-shell .value-card p {
+  color: #c5d5dc;
 }
 
 .about-cta {
-  padding: 0 0 64px;
+  padding: 0 0 48px;
 }
 .about-cta-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding-top: 28px;
-  padding-bottom: 28px;
+  padding-top: 22px;
+  padding-bottom: 22px;
   border-top: 1px solid var(--line);
 }
 .about-cta-copy h2 {

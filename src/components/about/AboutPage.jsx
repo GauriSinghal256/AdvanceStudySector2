@@ -10,12 +10,10 @@ import './AboutPage.css'
 export function AboutPage() {
   return <div className="about-page-shell">
     <PageHero
-      label="06 / Our story"
+      label="Our story"
       title={<>Learning that<br /><em>leaves a mark.</em></>}
       intro="Advance Study Sector is a place for focused learning, honest mentorship and the kind of progress you can carry into the world."
       video="https://player.cloudinary.com/embed/?cloud_name=ekmijnj9&public_id=Adobe_Express_-_C4170"
-      poster="/aboutus/focus_deeply.jpg"
-      image="/aboutus/focus_deeply.jpg"
     />
 
     <section className="about-quote section-wrap">

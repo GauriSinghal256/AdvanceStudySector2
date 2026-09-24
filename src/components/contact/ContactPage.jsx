@@ -36,7 +36,7 @@ export function ContactPage() {
 
   return <section className="page-section contact-page section-wrap">
     <OverlayHero
-      label="08 / Let's talk"
+      label="Let's talk"
       title={<>Your next chapter<br /><em>starts here.</em></>}
       intro="Have a question about a course or your best path forward? Our team would love to hear from you."
       video="https://player.cloudinary.com/embed/?cloud_name=ekmijnj9&public_id=Adobe_Express_-_C4114"

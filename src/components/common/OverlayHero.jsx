@@ -7,8 +7,11 @@ export function getCloudinaryVideoUrl(url) {
     try {
       const parsed = new URL(url)
       const cloudName = parsed.searchParams.get('cloud_name')
-      const publicId = parsed.searchParams.get('public_id')
+      let publicId = parsed.searchParams.get('public_id')
       if (cloudName && publicId) {
+        if (publicId === 'Adobe_Express_-_C4196s') {
+          publicId = 'Adobe_Express_-_C4196'
+        }
         return `https://res.cloudinary.com/${cloudName}/video/upload/f_auto,q_auto/${publicId}.mp4`
       }
     } catch {
@@ -30,7 +33,6 @@ export function OverlayHero({
   className = ''
 }) {
   const videoSrc = getCloudinaryVideoUrl(video)
-  const posterSrc = poster || image
 
   return <section className={`overlay-hero ${className}`}>
     {videoSrc ? (
@@ -38,7 +40,6 @@ export function OverlayHero({
         <video
           className="overlay-hero-video-frame"
           src={videoSrc}
-          poster={posterSrc}
           autoPlay
           muted
           loop
@@ -54,10 +55,10 @@ export function OverlayHero({
     )}
     <div className="overlay-hero-shade" />
     <div className="overlay-hero-content section-wrap">
-      {label && <Reveal><p className="eyebrow eyebrow-light"><span /> {label}</p></Reveal>}
+      {label && <Reveal><p className="eyebrow eyebrow-light">{label}</p></Reveal>}
       <Reveal delay={100}><h1>{title}</h1></Reveal>
       {intro && <Reveal delay={180}><p className="overlay-hero-intro">{intro}</p></Reveal>}
       {children && <Reveal delay={260}><div className="overlay-hero-actions">{children}</div></Reveal>}
     </div>
   </section>
-}
+}

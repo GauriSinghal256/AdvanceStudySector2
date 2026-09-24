@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { Reveal } from '../common/Reveal'
 import { testimonials } from '../../data/testimonials'
 import { contactInfo } from '../../data/contactInfo'
@@ -9,27 +8,56 @@ function initials(name) {
 }
 
 export function TestimonialsSection() {
-  const [index, setIndex] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
 
-  const count = testimonials.length
+  const renderCard = (testimonial, i, groupIdx) => (
+    <div
+      className="testimonial-card"
+      key={`${testimonial.name}-${groupIdx}-${i}`}
+      tabIndex={0}
+      role="article"
+      aria-label={`Testimonial from ${testimonial.name}`}
+    >
+      <div className="quote-mark" aria-hidden="true">&quot;</div>
 
-  useEffect(() => {
-    if (isPaused || count < 2) return
-    const timer = window.setInterval(() => {
-      setIndex((curr) => (curr + 1) % count)
-    }, 4500)
-    return () => window.clearInterval(timer)
-  }, [isPaused, count])
+      <div className="testimonial-card-top">
+        <div className="testimonial-badge-wrap">
+          <span className="testimonial-verified-dot" />
+          <span className="testimonial-label">Verified Student Review</span>
+        </div>
+        <div className="testimonial-stars" aria-label="5 out of 5 stars">
+          ★★★★★
+        </div>
+      </div>
 
-  const handlePrev = () => setIndex((curr) => (curr - 1 + count) % count)
-  const handleNext = () => setIndex((curr) => (curr + 1) % count)
+      <p className="testimonial-quote-text">&ldquo;{testimonial.quote}&rdquo;</p>
 
-  // Duplicate items for uninterrupted continuous display
-  const displayItems = [...testimonials, ...testimonials]
+      <div className="testimonial-author">
+        <span className="testimonial-avatar">
+          {initials(testimonial.name)}
+        </span>
+        <div className="testimonial-author-meta">
+          <strong>{testimonial.name}</strong>
+          <a
+            className="google-review-link"
+            href={contactInfo.mapLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>Google Review</span>
+            <span className="review-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  )
 
   return (
     <section className="testimonials-section">
+      <div className="testimonials-bg-ambient" aria-hidden="true">
+        <div className="ambient-orb ambient-orb-1" />
+        <div className="ambient-orb ambient-orb-2" />
+      </div>
+
       <div className="section-wrap">
         <div className="testimonials-header-bar">
           <div className="testimonials-header-copy">
@@ -39,83 +67,48 @@ export function TestimonialsSection() {
                 What our learners<br /><em>say about us.</em>
               </h2>
             </Reveal>
+            <Reveal delay={120}>
+              <div className="testimonials-rating-pill">
+                <span className="rating-star">⭐</span>
+                <strong>4.9 / 5.0</strong>
+                <span className="rating-divider">·</span>
+                <span>Verified Google Reviews</span>
+              </div>
+            </Reveal>
           </div>
-
-          <Reveal delay={120}>
-            <div className="testimonial-nav-arrows">
-              <button
-                type="button"
-                className="testimonial-arrow-btn"
-                onClick={handlePrev}
-                aria-label="Previous testimonial"
-              >
-                ←
-              </button>
-              <button
-                type="button"
-                className="testimonial-arrow-btn"
-                onClick={handleNext}
-                aria-label="Next testimonial"
-              >
-                →
-              </button>
-            </div>
-          </Reveal>
         </div>
+      </div>
 
-        <Reveal className="testimonial-carousel-reveal">
-          <div
-            className="testimonials-viewport"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onTouchStart={() => setIsPaused(true)}
-            onTouchEnd={() => setIsPaused(false)}
-          >
-            <div className="testimonials-grid" style={{ '--current-index': index }}>
-              {displayItems.map((testimonial, i) => (
-                <div className="testimonial-card" key={`${testimonial.name}-${i}`}>
-                  <div className="quote-mark" aria-hidden="true">&quot;</div>
-
-                  <div className="testimonial-card-top">
-                    <span className="testimonial-label">Verified Student Review</span>
-                    <div className="testimonial-stars" aria-label="5 out of 5 stars">
-                      ★★★★★
-                    </div>
-                  </div>
-
-                  <p className="testimonial-quote-text">{testimonial.quote}</p>
-
-                  <div className="testimonial-author">
-                    <span className="testimonial-avatar">
-                      {initials(testimonial.name)}
-                    </span>
-                    <div className="testimonial-author-meta">
-                      <strong>{testimonial.name}</strong>
-                      <a
-                        className="google-review-link"
-                        href={contactInfo.mapLink}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {testimonial.role} ↗
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+      {/* Infinite Marquee Reel */}
+      <div className="testimonials-viewport">
+        <div className="testimonials-track scroll-left">
+          <div className="marquee-group">
+            {testimonials.map((t, i) => renderCard(t, i, 1))}
           </div>
+          <div className="marquee-group" aria-hidden="true">
+            {testimonials.map((t, i) => renderCard(t, i, 2))}
+          </div>
+          <div className="marquee-group" aria-hidden="true">
+            {testimonials.map((t, i) => renderCard(t, i, 3))}
+          </div>
+        </div>
+      </div>
 
-          <div className="testimonial-dots" aria-label="Testimonial pagination">
-            {testimonials.map((item, dotIdx) => (
-              <button
-                type="button"
-                key={`${item.name}-${dotIdx}`}
-                className={index === dotIdx ? 'selected' : ''}
-                onClick={() => setIndex(dotIdx)}
-                aria-label={`Go to testimonial ${dotIdx + 1}`}
-              />
-            ))}
+      <div className="section-wrap testimonials-footer-wrap">
+        <Reveal delay={160}>
+          <div className="testimonials-footer-cta">
+            <span className="cta-icon">💬</span>
+            <p>
+              Have you studied with Advance Study Sector?{' '}
+              <a
+                href={contactInfo.mapLink}
+                target="_blank"
+                rel="noreferrer"
+                className="google-cta-link"
+              >
+                Share your experience on Google Maps ↗
+              </a>
+            </p>
           </div>
         </Reveal>
       </div>

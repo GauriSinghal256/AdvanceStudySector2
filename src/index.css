@@ -91,3 +91,80 @@ h1 em, h2 em { font-family: 'Playfair Display', serif; font-weight: 500; color: 
 @media (max-width: 380px) {
   .section-wrap { padding-left: 18px; padding-right: 18px; }
 }
+
+/* === TOP SCROLL PROGRESS BAR === */
+.scroll-progress-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3.5px;
+  background: linear-gradient(90deg, var(--orange) 0%, #ff833b 50%, #ffa56a 100%);
+  transform-origin: 0% 50%;
+  z-index: 10005;
+  pointer-events: none;
+  box-shadow: 0 0 12px rgba(239, 91, 23, 0.6);
+  transition: transform 0.08s linear;
+}
+
+/* === ROUTE PAGE TRANSITION ANIMATION === */
+.main-page-transition {
+  animation: pageEnter 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === GLOBAL INTERACTIVE SCROLL ENHANCEMENTS === */
+/* Smooth hover lift and card elevation on scroll */
+.course-card-img,
+.value-card,
+.topper-card,
+.award-card,
+.gallery-card,
+.community-card,
+.blog-card {
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.32s ease,
+              border-color 0.32s ease;
+}
+
+/* Hover lift on interactive cards */
+.value-card:hover,
+.topper-card:hover,
+.community-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Section kicker underline expansion animation */
+.eyebrow span {
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-in .eyebrow span {
+  width: 42px;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress-line {
+    display: none;
+  }
+  .main-page-transition {
+    animation: none;
+  }
+  .value-card:hover,
+  .topper-card:hover,
+  .community-card:hover {
+    transform: none;
+  }
+}
+
