@@ -1,4 +1,10 @@
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+// Clean accidental whitespace, newlines, or trailing slashes
+const rawBaseUrl = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api')
+  .trim()
+  .replace(/\/+$/, '')
+
+// Ensure base URL always ends with /api (e.g. https://...onrender.com/api)
+const BASE_URL = rawBaseUrl.endsWith('/api') ? rawBaseUrl : `${rawBaseUrl}/api`
 
 async function request(path, { method = 'GET', body, token } = {}) {
   const isFormData = body instanceof FormData
