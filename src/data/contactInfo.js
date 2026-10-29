@@ -1,6 +1,8 @@
 export const contactInfo = {
   phone: '+91 99965 70747',
   phoneHref: 'tel:+919996570747',
+  alternatePhone: '+91 81684 77983',
+  alternatePhoneHref: 'tel:+918168477983',
   whatsappHref: 'https://wa.me/919996570747',
   email: 'advanceskillsector@gmail.com',
   emailHref: 'mailto:advanceskillsector@gmail.com',

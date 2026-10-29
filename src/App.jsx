@@ -5,6 +5,7 @@ import { Footer } from './components/layout/Footer'
 import { ScrollTopButton } from './components/layout/ScrollTopButton'
 import { Preloader } from './components/common/Preloader'
 import { HomePage } from './components/home/HomePage'
+import { FloatingContactActions } from './components/home/FloatingContactActions'
 import { AboutPage } from './components/about/AboutPage'
 import { CoursesPage } from './components/courses/CoursesPage'
 import { CourseDetailPage } from './components/courses/CourseDetailPage'
@@ -74,8 +75,9 @@ function App() {
       </Routes>
     </main>
 
+    {location.pathname === '/' && <FloatingContactActions />}
     <Footer />
-    <ScrollTopButton visible={showTop} />
+    {location.pathname !== '/' && <ScrollTopButton visible={showTop} />}
   </div></AuthProvider>
 }
 

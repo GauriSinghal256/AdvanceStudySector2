@@ -46,7 +46,7 @@ export function ContactPage() {
     />
     <div className="contact-grid">
       <Reveal><div className="contact-details">
-        <div className="detail"><span className="detail-icon">↗</span><div><small>Call us</small><a href={contactInfo.phoneHref}>{contactInfo.phone}</a></div></div>
+        <div className="detail"><span className="detail-icon">↗</span><div><small>Call us</small><a href={contactInfo.phoneHref}>{contactInfo.phone}</a><a href={contactInfo.alternatePhoneHref}>{contactInfo.alternatePhone}</a></div></div>
         <div className="detail"><span className="detail-icon">✉</span><div><small>Email us</small><a href={contactInfo.emailHref}>{contactInfo.email}</a></div></div>
         <div className="detail"><span className="detail-icon">⌖</span><div><small>Visit us</small><p>{contactInfo.addressLines.map((line, i) => <span key={line}>{line}{i < contactInfo.addressLines.length - 1 && <br />}</span>)}</p><a className="map-link" href={contactInfo.mapLink} target="_blank" rel="noreferrer">Get directions ↗</a></div></div>
         <div className="detail"><span className="detail-icon">◷</span><div><small>Office hours</small><p>{contactInfo.hours.weekdays}<br />{contactInfo.hours.sunday}</p></div></div>
